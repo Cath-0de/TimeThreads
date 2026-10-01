@@ -1,0 +1,57 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    // Profile, interest tags, pseudonym, stars. Private to the owner;
+    // the pseudonym shown on a post is copied onto the post itself.
+    match /users/{uid} {
+      allow read, write: if signedIn() && request.auth.uid == uid;
+    }
+
+    // Seed graph. Written only by the pipeline (Admin SDK bypasses rules).
+    match /nodes/{nodeId} {
+      allow read: if signedIn();
+      allow write: if false;
+    }
+
+    // Sourced edges come from the pipeline. Clients may only propose
+    // community edges, and can never set or change promotion themselves.
+    match /edges/{edgeId} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && request.resource.data.type in ['claim', 'parallel']
+        && request.resource.data.proposedBy == request.auth.uid
+        && request.resource.data.promoted == false;
+      allow update, delete: if false;
+    }
+
+    // Only the author can edit or delete, and authorship can't be reassigned.
+    match /posts/{postId} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && request.resource.data.author == request.auth.uid;
+      allow update: if signedIn()
+        && resource.data.author == request.auth.uid
+        && request.resource.data.author == resource.data.author;
+      allow delete: if signedIn()
+        && resource.data.author == request.auth.uid;
+    }
+
+    // One vote per user per post: the doc id must be `{uid}_{postId}`,
+    // so a second vote collides with the first instead of adding a doc.
+    match /votes/{voteId} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && voteId == request.auth.uid + '_' + request.resource.data.postId;
+      allow delete: if signedIn()
+        && resource.data.uid == request.auth.uid;
+      allow update: if false;
+    }
+  }
+}

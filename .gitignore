@@ -1,0 +1,7 @@
+# Firebase CLI
+.firebase/
+*-debug.log
+
+# Admin SDK service account keys (pipeline) — never commit these
+serviceAccount*.json
+*-firebase-adminsdk-*.json
