@@ -1,8 +1,11 @@
 TimeThreads - getting the project running
 ==========================================
 
-Firebase is already set up and connected. You do not need to create a
-Firebase project or paste any config. Follow the steps for your role.
+Firebase is already set up. You do not need to create a Firebase
+project. The only thing you add yourself is a small config file
+(step 2 below). Follow the steps for your role.
+
+DON'T FORGET TO WORK ON YOUR BRANCH!!! 
 
 
 EVERYONE: run the app locally
@@ -12,11 +15,51 @@ You need Node.js 22 or newer (https://nodejs.org). Check with:
 
     node --version
 
-Then, from the repo root:
+Step 1. Get the code and install, from the repo root:
 
     git pull
     cd timethreads
     npm install
+
+Step 2. Add the Firebase config (one time only). The config is kept
+out of git so GitHub does not send security alerts about it.
+
+  a. In the timethreads folder, make a copy of .env.example and name
+     the copy .env.local
+
+         Windows:    copy .env.example .env.local
+         Mac/Linux:  cp .env.example .env.local
+
+  b. Find the values. Open
+     https://console.firebase.google.com/project/timethreads/settings/general
+     scroll down to "Your apps" and pick the TimeThreads web app.
+     Firebase shows a block of code containing "const firebaseConfig".
+
+  c. Open .env.local and copy each value from that block onto the
+     matching line, after the "=". Leave out the quotes and the
+     commas, and do not add spaces:
+
+         Firebase shows        goes on this line in .env.local
+         -----------------     ---------------------------------
+         apiKey                VITE_FIREBASE_API_KEY
+         authDomain            VITE_FIREBASE_AUTH_DOMAIN
+         projectId             VITE_FIREBASE_PROJECT_ID
+         storageBucket         VITE_FIREBASE_STORAGE_BUCKET
+         messagingSenderId     VITE_FIREBASE_MESSAGING_SENDER_ID
+         appId                 VITE_FIREBASE_APP_ID
+
+     A finished line looks like this:
+
+         VITE_FIREBASE_PROJECT_ID=timethreads
+
+    You only need to copy whats inside of:  const firebaseConfig = {
+
+Do NOT paste Firebase's code block into firebase.ts or any other file
+in the repo. firebase.ts already does the setup and reads the values
+from .env.local. Only .env.local is ignored by git.
+
+Step 3. Start the app, still in the timethreads folder:
+
     npm run dev
 
 Open the address it prints (usually http://localhost:5173). The app
@@ -56,7 +99,8 @@ Then, from the repo root (not the timethreads folder):
     firebase deploy --only firestore:rules     security rules
     firebase deploy --only hosting             the website
 
-The hosting deploy builds the app for you. The live site is
+The hosting deploy builds the app for you, using the values in your
+.env.local, so do step 2 above before you deploy. The live site is
 https://timethreads.web.app
 
 Security rules are in firestore.rules at the repo root. Deploying them
@@ -75,10 +119,8 @@ web config.
 3. Keep it outside the repo, or name it serviceAccount.json so git
    ignores it.
 
-NEVER commit this file or post it in chat. It gives full access to the
-database. If it leaks, tell the team right away so the key can be
-revoked.
-
+NEVER commit this file. It gives full access to the
+database. 
 
 RULES FOR THE WHOLE TEAM
 ------------------------
@@ -101,8 +143,16 @@ IF SOMETHING GOES WRONG
     You are not signed in to the app, or the security rules block that
     read or write. Check firestore.rules.
 
+"Missing Firebase config" or a blank page
+    The .env.local file is missing, is in the wrong folder (it must be
+    inside timethreads, next to package.json), or has an empty line.
+    The error names the values that are missing. Redo step 2, then
+    stop and restart "npm run dev".
+
 "firebase: command not found"
     Run: npm install -g firebase-tools
+    or try
+    npm install firebase
 
 "firebase deploy" says you have no access to the project
     You are logged in with a different Google account than the one
