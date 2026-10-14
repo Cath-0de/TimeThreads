@@ -1,57 +1,282 @@
 rules_version = '2';
 
+// TimeThreads security rules. The document shapes are defined in
+// timethreads/src/schema.ts and every client write goes through
+// timethreads/src/actions.ts. Keep all three in sync.
+//
+// There are no Cloud Functions (free plan), so counters such as vote totals
+// are written by the client and these rules check that every change is
+// honest: a vote and the counter it moves must be written together, and
+// counters can only step by the amount that vote allows.
+
 service cloud.firestore {
   match /databases/{database}/documents {
+
+    // ---------------------------------------------------------------- helpers
 
     function signedIn() {
       return request.auth != null;
     }
 
-    // Profile, interest tags, pseudonym, stars. Private to the owner;
-    // the pseudonym shown on a post is copied onto the post itself.
-    match /users/{uid} {
-      allow read, write: if signedIn() && request.auth.uid == uid;
+    function uid() {
+      return request.auth.uid;
     }
 
-    // Seed graph. Written only by the pipeline (Admin SDK bypasses rules).
+    function docPath(col, id) {
+      return /databases/$(database)/documents/$(col)/$(id);
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function changed() {
+      return incoming().diff(resource.data).affectedKeys();
+    }
+
+    // Must match PROMOTE_AT in timethreads/src/schema.ts.
+    function promoteAt() {
+      return 5;
+    }
+
+    // A counter update on a post or edge is valid only if this same request
+    // also creates, changes or removes the caller's vote on that target, and
+    // the counters move by exactly what that vote change implies.
+    function voteDeltaOk(targetId) {
+      let p = docPath('votes', uid() + '_' + targetId);
+      let before = exists(p) ? get(p).data.value : 0;
+      let after = existsAfter(p) ? getAfter(p).data.value : 0;
+      return before != after
+        && incoming().score == resource.data.score + after - before
+        && incoming().upvotes == resource.data.upvotes
+             + (after == 1 ? 1 : 0) - (before == 1 ? 1 : 0)
+        && incoming().downvotes == resource.data.downvotes
+             + (after == -1 ? 1 : 0) - (before == -1 ? 1 : 0);
+    }
+
+    // ------------------------------------------------------------------ users
+    // Private to the owner. The pseudonym is set once and copied onto posts.
+
+    match /users/{userId} {
+      allow read: if signedIn() && uid() == userId;
+      allow create: if signedIn() && uid() == userId
+        && incoming().keys().hasOnly(['pseudonym', 'interests', 'createdAt'])
+        && incoming().pseudonym is string
+        && incoming().pseudonym.size() > 0 && incoming().pseudonym.size() <= 40
+        && incoming().interests is list
+        && incoming().createdAt == request.time;
+      allow update: if signedIn() && uid() == userId
+        && changed().hasOnly(['interests'])
+        && incoming().interests is list && incoming().interests.size() <= 10;
+      allow delete: if false;
+
+      // Follow tab.
+      match /stars/{targetId} {
+        allow read, delete: if signedIn() && uid() == userId;
+        allow create: if signedIn() && uid() == userId
+          && incoming().keys().hasOnly(['targetType', 'targetId', 'createdAt'])
+          && incoming().targetType in ['node', 'edge']
+          && incoming().targetId == targetId
+          && incoming().createdAt == request.time;
+        allow update: if false;
+      }
+
+      // Personal view.
+      match /history/{nodeId} {
+        allow read: if signedIn() && uid() == userId;
+        allow create: if signedIn() && uid() == userId
+          && incoming().keys().hasOnly(['nodeId', 'count', 'lastViewedAt'])
+          && incoming().nodeId == nodeId
+          && incoming().count == 1
+          && incoming().lastViewedAt == request.time;
+        allow update: if signedIn() && uid() == userId
+          && changed().hasOnly(['count', 'lastViewedAt'])
+          && incoming().count == resource.data.count + 1
+          && incoming().lastViewedAt == request.time;
+        allow delete: if signedIn() && uid() == userId;
+      }
+    }
+
+    // ------------------------------------------------------------------ nodes
+    // Written by the pipeline (Admin SDK bypasses rules). Clients may only
+    // bump the activity counters.
+
     match /nodes/{nodeId} {
       allow read: if signedIn();
-      allow write: if false;
+      allow create, delete: if false;
+      allow update: if signedIn()
+        && changed().hasOnly(['postCount', 'starCount', 'lastActivityAt'])
+        && (incoming().get('postCount', 0) - resource.data.get('postCount', 0)) in [0, 1]
+        && starChangeOk(nodeId)
+        && (!changed().hasAny(['lastActivityAt'])
+            || incoming().lastActivityAt == request.time);
+
+      // starCount may only move together with the caller's own star doc.
+      function starChangeOk(nodeId) {
+        let p = /databases/$(database)/documents/users/$(uid())/stars/$(nodeId);
+        let delta = incoming().get('starCount', 0) - resource.data.get('starCount', 0);
+        return delta == 0
+          || (delta == 1 && !exists(p) && existsAfter(p))
+          || (delta == -1 && exists(p) && !existsAfter(p));
+      }
     }
 
-    // Sourced edges come from the pipeline. Clients may only propose
-    // community edges, and can never set or change promotion themselves.
+    // ------------------------------------------------------------------ edges
+    // Sourced edges come from the pipeline. Clients may propose community
+    // edges (claim / parallel) and vote on them; promotion follows the score.
+
     match /edges/{edgeId} {
       allow read: if signedIn();
+      allow delete: if false;
+
       allow create: if signedIn()
-        && request.resource.data.type in ['claim', 'parallel']
-        && request.resource.data.proposedBy == request.auth.uid
-        && request.resource.data.promoted == false;
-      allow update, delete: if false;
+        && incoming().keys().hasOnly([
+             'source', 'target', 'nodeIds', 'kind', 'relation', 'type',
+             'proposedBy', 'originPostId', 'promoted', 'upvotes',
+             'downvotes', 'score', 'postCount', 'lastActivityAt', 'createdAt'])
+        && incoming().kind == 'community'
+        && incoming().type in ['claim', 'parallel']
+        && incoming().relation == null
+        && incoming().proposedBy == uid()
+        && incoming().promoted == false
+        && incoming().upvotes == 0
+        && incoming().downvotes == 0
+        && incoming().score == 0
+        && incoming().postCount == 1
+        && incoming().source is string && incoming().target is string
+        && incoming().source != incoming().target
+        && incoming().nodeIds == [incoming().source, incoming().target]
+        && exists(docPath('nodes', incoming().source))
+        && exists(docPath('nodes', incoming().target))
+        && incoming().createdAt == request.time
+        && incoming().lastActivityAt == request.time
+        // The edge is created in the same batch as the post that argues for it.
+        && getAfter(docPath('posts', incoming().originPostId)).data.proposedEdgeId == edgeId;
+
+      allow update: if signedIn() && (edgeVote() || edgeActivity());
+
+      function edgeVote() {
+        return resource.data.kind == 'community'
+          && changed().hasOnly(['upvotes', 'downvotes', 'score', 'promoted'])
+          && voteDeltaOk(edgeId)
+          && incoming().promoted == (incoming().score >= promoteAt());
+      }
+
+      function edgeActivity() {
+        return changed().hasOnly(['postCount', 'lastActivityAt'])
+          && incoming().postCount == resource.data.get('postCount', 0) + 1
+          && incoming().lastActivityAt == request.time;
+      }
     }
 
-    // Only the author can edit or delete, and authorship can't be reassigned.
+    // ------------------------------------------------------------------ posts
+    // Flat threads. Authorship is fixed; the pseudonym must be the author's.
+
     match /posts/{postId} {
       allow read: if signedIn();
+
       allow create: if signedIn()
-        && request.resource.data.author == request.auth.uid;
-      allow update: if signedIn()
-        && resource.data.author == request.auth.uid
-        && request.resource.data.author == resource.data.author;
-      allow delete: if signedIn()
-        && resource.data.author == request.auth.uid;
+        && incoming().keys().hasOnly([
+             'targetType', 'targetId', 'author', 'pseudonym', 'body', 'kind',
+             'replyToPostId', 'proposedEdgeId', 'citations', 'upvotes',
+             'downvotes', 'score', 'createdAt'])
+        && incoming().author == uid()
+        && incoming().pseudonym == get(docPath('users', uid())).data.pseudonym
+        && incoming().targetType in ['node', 'edge']
+        && incoming().targetId is string
+        && validBody()
+        && incoming().kind in ['support', 'counter', 'viewpoint', 'propose_edge']
+        && (incoming().replyToPostId == null || incoming().replyToPostId is string)
+        && incoming().upvotes == 0
+        && incoming().downvotes == 0
+        && incoming().score == 0
+        && incoming().createdAt == request.time
+        && (incoming().kind == 'propose_edge'
+              ? incoming().proposedEdgeId == incoming().targetId
+                && getAfter(docPath('edges', incoming().targetId)).data.originPostId == postId
+              : incoming().proposedEdgeId == null);
+
+      allow update: if signedIn() && (authorEdit() || postVote());
+      allow delete: if signedIn() && resource.data.author == uid();
+
+      function validBody() {
+        return incoming().body is string
+          && incoming().body.size() > 0 && incoming().body.size() <= 5000
+          && incoming().citations is list && incoming().citations.size() <= 20;
+      }
+
+      function authorEdit() {
+        return resource.data.author == uid()
+          && changed().hasOnly(['body', 'citations'])
+          && validBody();
+      }
+
+      function postVote() {
+        return changed().hasOnly(['upvotes', 'downvotes', 'score'])
+          && voteDeltaOk(postId);
+      }
     }
 
-    // One vote per user per post: the doc id must be `{uid}_{postId}`,
-    // so a second vote collides with the first instead of adding a doc.
+    // ------------------------------------------------------------------ votes
+    // Doc ID is `{uid}_{targetId}`, so a second vote replaces the first.
+    // Each vote write must move the target's score by the same amount in
+    // the same transaction (see castVote in actions.ts).
+
     match /votes/{voteId} {
+      // get: works even when the vote doesn't exist yet (castVote reads first).
+      // list: only queries filtered with where('uid', '==', myUid).
+      allow get: if signedIn() && voteId.matches('^' + uid() + '_.+$');
+      allow list: if signedIn() && resource.data.uid == uid();
+
+      allow create: if signedIn() && voteShapeOk()
+        && scoreMovedBy(incoming().value);
+      allow update: if signedIn() && voteShapeOk()
+        && incoming().targetId == resource.data.targetId
+        && incoming().targetType == resource.data.targetType
+        && scoreMovedBy(incoming().value - resource.data.value);
+      allow delete: if signedIn() && resource.data.uid == uid()
+        && scoreMovedByOnDelete();
+
+      function voteShapeOk() {
+        return incoming().keys().hasOnly(['uid', 'targetType', 'targetId', 'value'])
+          && incoming().uid == uid()
+          && voteId == uid() + '_' + incoming().targetId
+          && incoming().value in [1, -1]
+          && (incoming().targetType == 'post'
+              || (incoming().targetType == 'edge'
+                  && get(docPath('edges', incoming().targetId)).data.kind == 'community'));
+      }
+
+      function targetPath(targetType, targetId) {
+        return docPath(targetType == 'post' ? 'posts' : 'edges', targetId);
+      }
+
+      function scoreMovedBy(delta) {
+        let p = targetPath(incoming().targetType, incoming().targetId);
+        return getAfter(p).data.score == get(p).data.score + delta;
+      }
+
+      function scoreMovedByOnDelete() {
+        let p = targetPath(resource.data.targetType, resource.data.targetId);
+        return getAfter(p).data.score == get(p).data.score - resource.data.value;
+      }
+    }
+
+    // --------------------------------------------------------------- activity
+    // Daily visit buckets for the Popular view: activity/{yyyy-mm-dd}/nodes/{nodeId}.
+    // The view reads the top nodes from each of the last 7 days and merges them.
+
+    match /activity/{day}/nodes/{nodeId} {
       allow read: if signedIn();
       allow create: if signedIn()
-        && request.resource.data.uid == request.auth.uid
-        && voteId == request.auth.uid + '_' + request.resource.data.postId;
-      allow delete: if signedIn()
-        && resource.data.uid == request.auth.uid;
-      allow update: if false;
+        && day.matches('^[0-9]{4}-[0-9]{2}-[0-9]{2}$')
+        && incoming().keys().hasOnly(['nodeId', 'visits'])
+        && incoming().nodeId == nodeId
+        && incoming().visits == 1;
+      allow update: if signedIn()
+        && changed().hasOnly(['visits'])
+        && incoming().visits == resource.data.visits + 1;
+      allow delete: if false;
     }
   }
 }
