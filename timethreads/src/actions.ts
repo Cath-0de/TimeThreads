@@ -33,11 +33,11 @@ import {
 // ---------------------------------------------------------------------------
 
 const ADJECTIVES = ['Amber', 'Gilded', 'Quiet', 'Wandering', 'Ashen', 'Ivory', 'Crimson', 'Lantern']
-const NOUNS = ['Cartographer', 'Archivist', 'Scribe', 'Chronicler', 'Herald', 'Pilgrim', 'Scholar', 'Navigator']
+const ANIMALS = ['Otter', 'Falcon', 'Badger', 'Heron', 'Lynx', 'Tortoise', 'Raven', 'Fox']
 
 function randomPseudonym(): string {
   const pick = (list: string[]) => list[Math.floor(Math.random() * list.length)]
-  return `${pick(ADJECTIVES)} ${pick(NOUNS)} ${Math.floor(100 + Math.random() * 900)}`
+  return `${pick(ADJECTIVES)} ${pick(ANIMALS)} ${Math.floor(100 + Math.random() * 900)}`
 }
 
 /** Creates the user doc on first sign-in. Safe to call on every sign-in. */
