@@ -13,7 +13,7 @@ import {
   type RulesTestEnvironment,
 } from '@firebase/rules-unit-testing'
 import { doc, getDoc, setDoc, updateDoc, writeBatch, type Firestore } from 'firebase/firestore'
-import { castVote, createPost, ensureUser, proposeEdge, recordVisit, setStar } from '../src/actions'
+import { castVote, createPost, deletePost, ensureUser, proposeEdge, recordVisit, setStar } from '../src/actions'
 import { PROMOTE_AT, dayKey, voteId } from '../src/schema'
 
 let env: RulesTestEnvironment
@@ -82,6 +82,20 @@ describe('posts', () => {
       proposedEdgeId: null, citations: [], upvotes: 0, downvotes: 0, score: 0,
     }
     await assertFails(setDoc(doc(alice, 'posts/p1'), { ...base, author: 'bob', pseudonym: 'Fake', createdAt: new Date() }))
+  })
+
+  it('lets only the author edit or delete a post', async () => {
+    const alice = asUser('alice')
+    const bob = asUser('bob')
+    await ensureUser(alice, 'alice')
+    const postId = await createPost(alice, 'alice', { targetType: 'node', targetId: 'Q1', body: 'Hi', kind: 'viewpoint' })
+
+    await assertFails(updateDoc(doc(bob, 'posts', postId), { body: 'Edited by Bob' }))
+    await assertFails(deletePost(bob, postId))
+    await assertFails(updateDoc(doc(alice, 'posts', postId), { author: 'bob' }))
+
+    await assertSucceeds(updateDoc(doc(alice, 'posts', postId), { body: 'Edited', citations: ['https://example.com'] }))
+    await assertSucceeds(deletePost(alice, postId))
   })
 
   it('rejects a post that starts with a fake score', async () => {

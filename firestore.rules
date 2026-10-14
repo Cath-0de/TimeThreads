@@ -196,6 +196,9 @@ service cloud.firestore {
                 && getAfter(docPath('edges', incoming().targetId)).data.originPostId == postId
               : incoming().proposedEdgeId == null);
 
+      // Only the post's author can edit (body/citations) or delete it.
+      // Anyone else may only move the vote counters, and only together with
+      // their own vote (postVote), so they can never change the content.
       allow update: if signedIn() && (authorEdit() || postVote());
       allow delete: if signedIn() && resource.data.author == uid();
 
