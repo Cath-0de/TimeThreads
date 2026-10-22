@@ -1,0 +1,47 @@
+The wikidata SPARKL query I used to get the fist batch of nodes (wars) was: 
+SELECT DISTINCT ?war ?warLabel ?startDate ?endDate
+WHERE
+{
+  ?war wdt:P31/wdt:P279* wd:Q350604
+  OPTIONAL{?war wdt:P580 ?startDate .}     # start date
+  OPTIONAL{?war wdt:P582 ?endDate . }    # end date
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en".
+  } 
+}
+LIMIT 150
+To format the json I used is https://json-indent.com/ but there might be a better solution for larger data sets
+
+For the JSON file, the format must be:
+{
+ "nodes" : [ '
+      {
+      "data" : {
+            "id":"Q65967183",
+            "label":"Reggie",
+            "start": "",
+            "end": "",
+            "tags": "",
+            "visits": ""
+            }
+        },
+        {
+        "data" : {
+            "id":"Q120181582",
+            "label":"Xenophon"
+            }
+        },
+    ],
+"edges": [
+    {"data" : { 
+        "source": "Q115757163", 
+        "target": "Q677525" 
+        }
+        },
+
+  ]
+}
+
+
+Use npx.cmd vite to run
