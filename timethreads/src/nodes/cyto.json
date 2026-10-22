@@ -1,0 +1,845 @@
+{
+  "nodes" : [
+    { "data" : {
+      "id": "Q1276892",
+      "label": "South Yemen crisis",
+      "startDate": "1986-01-13",
+      "endDate": "1986-01-24"
+    } },
+    { "data" : {
+      "id": "Q209297",
+      "label": "Farroupilha Revolution",
+      "startDate": "1835-09-20",
+      "endDate": "1845-03-01"
+    } },
+    { "data" : {
+      "id": "Q8628",
+      "label": "War in the Vendée",
+      "startDate": "1793-03-03",
+      "endDate": "1796-07-16"
+    } },
+    { "data" : {
+      "id": "Q759835",
+      "label": "Civil Wars of the Tetrarchy",
+      "startDate": "0308-01-01",
+      "endDate": "0324-01-01"
+    } },
+    { "data" : {
+      "id": "Q213394",
+      "label": "Sri Lankan civil war",
+      "startDate": "1983-07-23",
+      "endDate": "2009-05-18"
+    } },
+    { "data" : {
+      "id": "Q957532",
+      "label": "Third Carlist War",
+      "startDate": "1872-01-01",
+      "endDate": "1876-01-01"
+    } },
+    { "data" : {
+      "id": "Q823730",
+      "label": "First Sudanese Civil War",
+      "startDate": "1955-08-18",
+      "endDate": "1972-03-27"
+    } },
+    { "data" : {
+      "id": "Q979845",
+      "label": "Naxalite–Maoist insurgency",
+      "startDate": "1967-05-18"
+    } },
+    { "data" : {
+      "id": "Q10859",
+      "label": "Spanish Civil War",
+      "startDate": "1936-07-18",
+      "endDate": "1939-04-01"
+    } },
+    { "data" : {
+      "id": "Q127751",
+      "label": "Wars of the Roses",
+      "startDate": "1455-05-22",
+      "endDate": "1487-06-16"
+    } },
+    { "data" : {
+      "id": "Q743768",
+      "label": "The Anarchy",
+      "startDate": "1135-01-01",
+      "endDate": "1154-01-01"
+    } },
+    { "data" : {
+      "id": "Q521199",
+      "label": "North Yemen civil war",
+      "startDate": "1962-09-26",
+      "endDate": "1970-12-01"
+    } },
+    { "data" : {
+      "id": "Q154288",
+      "label": "Black September",
+      "startDate": "1970-09-06",
+      "endDate": "1971-07-17"
+    } },
+    { "data" : {
+      "id": "Q955457",
+      "label": "Dominican Civil War",
+      "startDate": "1965-04-24",
+      "endDate": "1965-09-03"
+    } },
+    { "data" : {
+      "id": "Q521868",
+      "label": "Sulla's Civil War",
+      "startDate": "-0082-01-01",
+      "endDate": "-0080-01-01"
+    } },
+    { "data" : {
+      "id": "Q868962",
+      "label": "Anti-Fengtian War",
+      "startDate": "1925-11-01",
+      "endDate": "1926-04-01"
+    } },
+    { "data" : {
+      "id": "Q741777",
+      "label": "War of Mutina",
+      "startDate": "-0043-01-01",
+      "endDate": "-0041-01-01"
+    } },
+    { "data" : {
+      "id": "Q1323522",
+      "label": "League War",
+      "startDate": "1835-09-01",
+      "endDate": "1835-10-01"
+    } },
+    { "data" : {
+      "id": "Q1477500",
+      "label": "First Liberian Civil War",
+      "startDate": "1989-12-24",
+      "endDate": "1997-08-02"
+    } },
+    { "data" : {
+      "id": "Q1302457",
+      "label": "Siamese Civil War of 1733",
+      "startDate": "1733-01-01",
+      "endDate": "1733-01-01"
+    } },
+    { "data" : {
+      "id": "Q782474",
+      "label": "Chadian Civil War of 1965–1979",
+      "startDate": "1965-01-01",
+      "endDate": "1979-01-01"
+    } },
+    { "data" : {
+      "id": "Q945700",
+      "label": "Chad–Sudan Conflict",
+      "startDate": "2005-12-18",
+      "endDate": "2010-01-15"
+    } },
+    { "data" : {
+      "id": "Q1021175",
+      "label": "First Ivorian Civil War",
+      "startDate": "2002-09-19",
+      "endDate": "2007-03-04"
+    } },
+    { "data" : {
+      "id": "Q142529",
+      "label": "Algerian Civil War",
+      "startDate": "1992-01-11",
+      "endDate": "2002-02-08"
+    } },
+    { "data" : {
+      "id": "Q1154912",
+      "label": "Iraqi Kurdish Civil War",
+      "startDate": "1994-05-01",
+      "endDate": "1997-11-24"
+    } },
+    { "data" : {
+      "id": "Q1262084",
+      "label": "Djiboutian Civil War",
+      "startDate": "1991-10-01",
+      "endDate": "1994-12-01"
+    } },
+    { "data" : {
+      "id": "Q1205962",
+      "label": "Castilian Civil War",
+      "startDate": "1351-01-01",
+      "endDate": "1369-01-01"
+    } },
+    { "data" : {
+      "id": "Q192408",
+      "label": "Taiping Rebellion",
+      "startDate": "1851-01-11",
+      "endDate": "1864-08-01"
+    } },
+    { "data" : {
+      "id": "Q243721",
+      "label": "Year of the Five Emperors"
+    } },
+    { "data" : {
+      "id": "Q748042",
+      "label": "Irish Civil War",
+      "startDate": "1922-06-28",
+      "endDate": "1923-05-24"
+    } },
+    { "data" : {
+      "id": "Q243620",
+      "label": "Somali Civil War",
+      "startDate": "1991-01-26"
+    } },
+    { "data" : {
+      "id": "Q426722",
+      "label": "Rwandan Civil War",
+      "startDate": "1990-10-01",
+      "endDate": "1993-08-04"
+    } },
+    { "data" : {
+      "id": "Q285280",
+      "label": "Transnistria War",
+      "startDate": "1990-11-02",
+      "endDate": "1992-07-21"
+    } },
+    { "data" : {
+      "id": "Q889182",
+      "label": "Bockenkrieg",
+      "startDate": "1804-03-24",
+      "endDate": "1804-04-03"
+    } },
+    { "data" : {
+      "id": "Q257724",
+      "label": "Ethiopian Civil War",
+      "startDate": "1974-09-12",
+      "endDate": "1991-06-04"
+    } },
+    { "data" : {
+      "id": "Q1207697",
+      "label": "Jingnan Campaign",
+      "startDate": "1399-08-16",
+      "endDate": "1402-07-22"
+    } },
+    { "data" : {
+      "id": "Q214426",
+      "label": "Mexican Revolution",
+      "startDate": "1910-11-20",
+      "endDate": "1920-05-21"
+    } },
+    { "data" : {
+      "id": "Q80330",
+      "label": "English Civil War",
+      "startDate": "1642-01-01",
+      "endDate": "1651-09-03"
+    } },
+    { "data" : {
+      "id": "Q1417059",
+      "label": "First Fitna",
+      "startDate": "0656-01-01",
+      "endDate": "0661-01-01"
+    } },
+    { "data" : {
+      "id": "Q1282732",
+      "label": "Guatemalan Civil War",
+      "startDate": "1965-03-03",
+      "endDate": "1996-12-29"
+    } },
+    { "data" : {
+      "id": "Q657661",
+      "label": "Mozambican Civil War",
+      "startDate": "1977-05-30",
+      "endDate": "1992-10-04"
+    } },
+    { "data" : {
+      "id": "Q1070890",
+      "label": "Georgian civil war of 1991–1993",
+      "startDate": "1991-12-22",
+      "endDate": "1993-12-31"
+    } },
+    { "data" : {
+      "id": "Q188972",
+      "label": "Greek Civil War",
+      "startDate": "1946-03-30",
+      "endDate": "1949-10-16"
+    } },
+    { "data" : {
+      "id": "Q8676",
+      "label": "American Civil War",
+      "startDate": "1861-04-12",
+      "endDate": "1865-04-09"
+    } },
+    { "data" : {
+      "id": "Q1345258",
+      "label": "National Protection War",
+      "startDate": "1915-12-25",
+      "endDate": "1919-07-14"
+    } },
+    { "data" : {
+      "id": "Q647239",
+      "label": "Burundi Civil War",
+      "startDate": "1993-10-21",
+      "endDate": "2005-05-15"
+    } },
+    { "data" : {
+      "id": "Q306123",
+      "label": "Austrian Civil War",
+      "startDate": "1934-02-12",
+      "endDate": "1934-02-16"
+    } },
+    { "data" : {
+      "id": "Q208484",
+      "label": "Lebanese Civil War",
+      "startDate": "1975-04-13",
+      "endDate": "1990-10-13"
+    } },
+    { "data" : {
+      "id": "Q164432",
+      "label": "Eighty Years' War",
+      "startDate": "1568-06-02",
+      "endDate": "1648-01-30"
+    } },
+    { "data" : {
+      "id": "Q1237867",
+      "label": "Liberal Wars",
+      "startDate": "1828-01-01",
+      "endDate": "1834-01-01"
+    } },
+    { "data" : {
+      "id": "Q1372308",
+      "label": "Jōkyū War",
+      "startDate": "1221-01-01",
+      "endDate": "1221-01-01"
+    } },
+    { "data" : {
+      "id": "Q717809",
+      "label": "Central Plains War",
+      "startDate": "1930-05-01",
+      "endDate": "1930-11-04"
+    } },
+    { "data" : {
+      "id": "Q211855",
+      "label": "Finnish Civil War",
+      "startDate": "1918-01-27",
+      "endDate": "1918-05-15"
+    } },
+    { "data" : {
+      "id": "Q1122110",
+      "label": "Tajikistani Civil War",
+      "startDate": "1992-05-05",
+      "endDate": "1997-06-27"
+    } },
+    { "data" : {
+      "id": "Q81545",
+      "label": "Libyan Civil War",
+      "startDate": "2011-02-15",
+      "endDate": "2011-10-23"
+    } },
+    { "data" : {
+      "id": "Q643925",
+      "label": "War of Dagestan",
+      "startDate": "1999-08-02",
+      "endDate": "1999-09-14"
+    } },
+    { "data" : {
+      "id": "Q178810",
+      "label": "Syrian Civil War",
+      "startDate": "2011-03-15",
+      "endDate": "2024-12-08"
+    } },
+    { "data" : {
+      "id": "Q185407",
+      "label": "La Violencia",
+      "startDate": "1949-12-06",
+      "endDate": "1958-01-01"
+    } },
+    { "data" : {
+      "id": "Q770951",
+      "label": "War of the Eight Princes",
+      "startDate": "0291-01-01",
+      "endDate": "0306-01-01"
+    } },
+    { "data" : {
+      "id": "Q817206",
+      "label": "Cambodian Civil War",
+      "startDate": "1967-03-11",
+      "endDate": "1975-04-17"
+    } },
+    { "data" : {
+      "id": "Q1052332",
+      "label": "Somali Civil War",
+      "startDate": "2009-01-31"
+    } },
+    { "data" : {
+      "id": "Q1432624",
+      "label": "Genkō War",
+      "startDate": "1331-01-01",
+      "endDate": "1333-01-01"
+    } },
+    { "data" : {
+      "id": "Q764038",
+      "label": "Jungle Movement of Gilan",
+      "startDate": "1915-10-01",
+      "endDate": "1920-06-05"
+    } },
+    { "data" : {
+      "id": "Q737542",
+      "label": "Genpei War",
+      "startDate": "1180-01-01",
+      "endDate": "1185-01-01"
+    } },
+    { "data" : {
+      "id": "Q569485",
+      "label": "Knights' War",
+      "startDate": "1522-09-06",
+      "endDate": "1523-05-16"
+    } },
+    { "data" : {
+      "id": "Q1049945",
+      "label": "Jacobite rising of 1745",
+      "startDate": "1745-01-01",
+      "endDate": "1746-01-01"
+    } },
+    { "data" : {
+      "id": "Q1021160",
+      "label": "Armagnac–Burgundian Civil War",
+      "startDate": "1407-01-01",
+      "endDate": "1435-01-01"
+    } },
+    { "data" : {
+      "id": "Q190758",
+      "label": "War in Darfur",
+      "startDate": "2003-02-26",
+      "endDate": "2020-08-31"
+    } },
+    { "data" : {
+      "id": "Q1122422",
+      "label": "Paraguayan Civil War of 1947",
+      "startDate": "1947-03-07",
+      "endDate": "1947-08-20"
+    } },
+    { "data" : {
+      "id": "Q1238338",
+      "label": "Caesar's Civil War",
+      "startDate": "-0048-01-08",
+      "endDate": "-0044-03-15"
+    } },
+    { "data" : {
+      "id": "Q842357",
+      "label": "Hōgen rebellion",
+      "startDate": "1156-07-28",
+      "endDate": "1156-08-16"
+    } },
+    { "data" : {
+      "id": "Q154875",
+      "label": "Göktürk Civil War",
+      "startDate": "0583-01-01",
+      "endDate": "0603-01-01"
+    } },
+    { "data" : {
+      "id": "Q179975",
+      "label": "Chinese Civil War",
+      "startDate": "1927-08-01",
+      "endDate": "1950-05-01"
+    } },
+    { "data" : {
+      "id": "Q877450",
+      "label": "Laotian Civil War",
+      "startDate": "1959-05-23",
+      "endDate": "1975-12-02"
+    } },
+    { "data" : {
+      "id": "Q470596",
+      "label": "Year of the Four Emperors",
+      "startDate": "0068-06-01",
+      "endDate": "0069-12-01"
+    } },
+    { "data" : {
+      "id": "Q688297",
+      "label": "Sonderbund War",
+      "startDate": "1847-11-03",
+      "endDate": "1847-11-29"
+    } },
+    { "data" : {
+      "id": "Q726261",
+      "label": "Ottoman Interregnum",
+      "startDate": "1402-07-29",
+      "endDate": "1413-07-14"
+    } },
+    { "data" : {
+      "id": "Q690096",
+      "label": "Toggenburg War",
+      "startDate": "1712-04-12",
+      "endDate": "1712-08-11"
+    } },
+    { "data" : {
+      "id": "Q690096",
+      "label": "Toggenburg War",
+      "startDate": "1712-04-12",
+      "endDate": "1712-07-24"
+    } },
+    { "data" : {
+      "id": "Q549605",
+      "label": "Lithuanian Civil War of 1381–1384",
+      "startDate": "1381-08-01",
+      "endDate": "1384-07-01"
+    } },
+    { "data" : {
+      "id": "Q249960",
+      "label": "Chouannerie",
+      "startDate": "1794-01-01",
+      "endDate": "1800-01-01"
+    } },
+    { "data" : {
+      "id": "Q309184",
+      "label": "Boshin War",
+      "startDate": "1868-01-27",
+      "endDate": "1869-06-27"
+    } },
+    { "data" : {
+      "id": "Q990347",
+      "label": "Transylvanian Civil War",
+      "startDate": "1610-01-01",
+      "endDate": "1611-01-01"
+    } },
+    { "data" : {
+      "id": "Q842380",
+      "label": "Second Sudanese Civil War",
+      "startDate": "1983-06-05",
+      "endDate": "2005-01-09"
+    } },
+    { "data" : {
+      "id": "Q656186",
+      "label": "Fronde",
+      "startDate": "1648-01-01",
+      "endDate": "1653-01-01"
+    } },
+    { "data" : {
+      "id": "Q519546",
+      "label": "Nauruan Civil War",
+      "startDate": "1878-01-01",
+      "endDate": "1888-01-01"
+    } },
+    { "data" : {
+      "id": "Q795269",
+      "label": "Sierra Leone Civil War",
+      "startDate": "1991-03-23",
+      "endDate": "2002-01-18"
+    } },
+    { "data" : {
+      "id": "Q881762",
+      "label": "Samoan Civil War",
+      "startDate": "1886-01-01",
+      "endDate": "1894-01-01"
+    } },
+    { "data" : {
+      "id": "Q620761",
+      "label": "Appeal War",
+      "startDate": "1724-04-28",
+      "endDate": "1727-04-01"
+    } },
+    { "data" : {
+      "id": "Q1021172",
+      "label": "Republic of the Congo civil war",
+      "startDate": "1997-01-01",
+      "endDate": "1999-01-01"
+    } },
+    { "data" : {
+      "id": "Q43378",
+      "label": "Thousand Days' War",
+      "startDate": "1899-10-17",
+      "endDate": "1902-11-21"
+    } },
+    { "data" : {
+      "id": "Q79911",
+      "label": "Russian Civil War",
+      "startDate": "1917-11-07",
+      "endDate": "1922-10-25"
+    } },
+    { "data" : {
+      "id": "Q944859",
+      "label": "Heiji rebellion",
+      "startDate": "1160-01-26",
+      "endDate": "1160-04-26"
+    } },
+    { "data" : {
+      "id": "Q1049956",
+      "label": "Hungarian campaign of 1527–1528",
+      "startDate": "1527-01-01",
+      "endDate": "1528-01-01"
+    } },
+    { "data" : {
+      "id": "Q1087909",
+      "label": "Second Ivorian Civil War",
+      "startDate": "2010-11-28",
+      "endDate": "2011-04-11"
+    } },
+    { "data" : {
+      "id": "Q909819",
+      "label": "2010–2011 Ivorian crisis",
+      "startDate": "2010-11-28",
+      "endDate": "2011-04-11"
+    } },
+    { "data" : {
+      "id": "Q33761",
+      "label": "Arab Spring",
+      "startDate": "2010-12-18",
+      "endDate": "2012-12-01"
+    } },
+    { "data" : {
+      "id": "Q829875",
+      "label": "Nigerian Civil War",
+      "startDate": "1967-07-06",
+      "endDate": "1970-01-15"
+    } },
+    { "data" : {
+      "id": "Q209965",
+      "label": "Casamance conflict",
+      "startDate": "1982-01-01",
+      "endDate": "2014-05-01"
+    } },
+    { "data" : {
+      "id": "Q1202792",
+      "label": "conflict in the Niger Delta",
+      "startDate": "2003-03-12"
+    } },
+    { "data" : {
+      "id": "Q18639233",
+      "label": "French and British interregnum in the Dutch East Indies",
+      "startDate": "1806-01-01",
+      "endDate": "1816-01-01"
+    } },
+    { "data" : {
+      "id": "Q20110765",
+      "label": "British occupation of Bushehr",
+      "startDate": "1915-08-08",
+      "endDate": "1915-10-16"
+    } },
+    { "data" : {
+      "id": "Q57083437",
+      "label": "1968 occupation of the National Autonomous University of Mexico",
+      "startDate": "1968-09-18",
+      "endDate": "1968-09-30"
+    } },
+    { "data" : {
+      "id": "Q112074688",
+      "label": "Soviet occupation of Bornholm",
+      "startDate": "1945-05-09",
+      "endDate": "1946-04-05"
+    } },
+    { "data" : {
+      "id": "Q111748056",
+      "label": "Russian occupation of Donetsk Oblast",
+      "startDate": "2014-04-07"
+    } },
+    { "data" : {
+      "id": "Q10340199",
+      "label": "Dutch occupation of Angola",
+      "startDate": "1641-08-25",
+      "endDate": "1648-08-15"
+    } },
+    { "data" : {
+      "id": "Q98628208",
+      "label": "Occupation of Frankfurt during the 1866 Main Campaign by Prussian troops",
+      "startDate": "1866-07-16",
+      "endDate": "1866-10-03"
+    } },
+    { "data" : {
+      "id": "Q111686059",
+      "label": "Russian occupation of Kherson Oblast",
+      "startDate": "2022-02-24"
+    } },
+    { "data" : {
+      "id": "Q111686059",
+      "label": "Russian occupation of Kherson Oblast",
+      "startDate": "2022-03-03"
+    } },
+    { "data" : {
+      "id": "Q86660883",
+      "label": "Papal occupation of the Sienese Maremma",
+      "startDate": "1526-07-01",
+      "endDate": "1529-02-01"
+    } },
+    { "data" : {
+      "id": "Q23041506",
+      "label": "Russian occupation of Eastern Galicia, 1914–15",
+      "startDate": "1914-08-01",
+      "endDate": "1915-06-01"
+    } },
+    { "data" : {
+      "id": "Q15971965",
+      "label": "Q15971965"
+    } },
+    { "data" : {
+      "id": "Q107027848",
+      "label": "Capture of the Rif",
+      "startDate": "1792-01-01",
+      "endDate": "1795-01-01"
+    } },
+    { "data" : {
+      "id": "Q66828125",
+      "label": "Spanish settlement at San Tomas, Hispaniola",
+      "startDate": "1494-03-21",
+      "endDate": "1495-04-03"
+    } },
+    { "data" : {
+      "id": "Q97182916",
+      "label": "Expropriation of La Brea y Pariñas"
+    } },
+    { "data" : {
+      "id": "Q31351948",
+      "label": "United States Military Government of the Philippine Islands",
+      "endDate": "1902-07-01"
+    } },
+    { "data" : {
+      "id": "Q98355578",
+      "label": "Japanese occupation of the Solomon Islands"
+    } },
+    { "data" : {
+      "id": "Q11030382",
+      "label": "Bulgarian rule of Macedonia, Morava Valley and Western Thrace (1941–1944)"
+    } },
+    { "data" : {
+      "id": "Q11164696",
+      "label": "Occupation of Yugoslavia"
+    } },
+    { "data" : {
+      "id": "Q11285099",
+      "label": "United States occupation of the Ryukyu Islands"
+    } },
+    { "data" : {
+      "id": "Q114149023",
+      "label": "Peruvian occupation of Ecuador",
+      "startDate": "1941-07-23",
+      "endDate": "1942-02-12"
+    } },
+    { "data" : {
+      "id": "Q20729964",
+      "label": "Q20729964",
+      "startDate": "1764-01-31",
+      "endDate": "1766-04-01"
+    } },
+    { "data" : {
+      "id": "Q12009711",
+      "label": "Vietnamese occupation of Cambodia"
+    } },
+    { "data" : {
+      "id": "Q12009712",
+      "label": "Vietnamese occupation of Poulo Wai"
+    } },
+    { "data" : {
+      "id": "Q113469602",
+      "label": "Russian occupation of Zhytomyr Oblast",
+      "startDate": "2022-02-26",
+      "endDate": "2022-04-02"
+    } },
+    { "data" : {
+      "id": "Q56063289",
+      "label": "Fiume enterprise",
+      "startDate": "1919-09-12",
+      "endDate": "1920-12-27"
+    } },
+    { "data" : {
+      "id": "Q13022414",
+      "label": "Saharat Thai Doem"
+    } },
+    { "data" : {
+      "id": "Q110205955",
+      "label": "Occupation of the Danish wadden sea islands",
+      "startDate": "1864-07-13",
+      "endDate": "1864-07-18"
+    } },
+    { "data" : {
+      "id": "Q111730756",
+      "label": "Russian occupation of Sumy Oblast",
+      "startDate": "2022-02-26",
+      "endDate": "2022-04-07"
+    } },
+    { "data" : {
+      "id": "Q16357902",
+      "label": "Incorporation of Estonia into the Soviet Union"
+    } },
+    { "data" : {
+      "id": "Q16362502",
+      "label": "Incorporation of Lithuania into the Soviet Union"
+    } },
+    { "data" : {
+      "id": "Q104844756",
+      "label": "Central Powers intervention in the Russian Civil War",
+      "startDate": "1917-12-15",
+      "endDate": "1920-01-10"
+    } },
+    { "data" : {
+      "id": "Q16932273",
+      "label": "Roman army in Dacia"
+    } },
+    { "data" : {
+      "id": "Q16934340",
+      "label": "Occupation of al-Ubulla"
+    } },
+    { "data" : {
+      "id": "Q17305561",
+      "label": "Occupation of Southern Slovakia"
+    } },
+    { "data" : {
+      "id": "Q110147340",
+      "label": "ISIS occupation of Mosul",
+      "startDate": "2014-06-10",
+      "endDate": "2017-07-21"
+    } },
+    { "data" : {
+      "id": "Q100778052",
+      "label": "Q100778052",
+      "startDate": "1866-06-19"
+    } },
+    { "data" : {
+      "id": "Q43715709",
+      "label": "French occupation of Frankfurt",
+      "startDate": "1920-04-06",
+      "endDate": "1920-05-17"
+    } },
+    { "data" : {
+      "id": "Q112520232",
+      "label": "Russian occupation of Luhansk Oblast",
+      "startDate": "2014-04-07"
+    } },
+    { "data" : {
+      "id": "Q16116167",
+      "label": "1918 occupation of Međimurje",
+      "startDate": "1918-11-13",
+      "endDate": "1918-12-24"
+    } },
+    { "data" : {
+      "id": "Q16933273",
+      "label": "Spanish Province of Santo Domingo",
+      "startDate": "1861-03-18",
+      "endDate": "1865-07-15"
+    } },
+    { "data" : {
+      "id": "Q9346657",
+      "label": "war zone"
+    } },
+    { "data" : {
+      "id": "Q11150089",
+      "label": "German occupation of Belarus during World War II",
+      "endDate": "1944-08-01"
+    } },
+    { "data" : {
+      "id": "Q86717945",
+      "label": "Q86717945",
+      "startDate": "1864-03-08",
+      "endDate": "1864-03-21"
+    } },
+    { "data" : {
+      "id": "Q15859754",
+      "label": "Russian occupation of Crimea",
+      "startDate": "2014-02-20",
+      "endDate": "http://www.wikidata.org/.well-known/genid/b8906d07a56d4dd0ca54c59b5cba1882"
+    } },
+    { "data" : {
+      "id": "Q16255524",
+      "label": "British occupation of the Jordan Valley",
+      "startDate": "1918-02-01",
+      "endDate": "1918-09-01"
+    } }
+   
+  ],
+  "edges": [
+    {
+      "data" : { 
+        "source": "Q16255524", 
+        "target": "Q15859754" 
+        }}
+  ]
+}

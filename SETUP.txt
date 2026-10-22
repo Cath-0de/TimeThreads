@@ -77,7 +77,7 @@ config anywhere else. Import what you need from it:
 
     import { auth, db } from './firebase'
 
-"auth" is Firebase Authentication, "db" is Firestore. Adjust the
+"auth" is Firebase Authentication, "dfb" is Firestore. Adjust the
 relative path if your file is in a subfolder.
 
 
