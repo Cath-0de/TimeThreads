@@ -198,6 +198,9 @@ export async function castVote(
   await runTransaction(db, async (tx) => {
     const [voteSnap, targetSnap] = await Promise.all([tx.get(voteRef), tx.get(targetRef)])
     if (!targetSnap.exists()) throw new Error(`No ${targetType} ${targetId}`)
+    if (targetType === 'edge' && targetSnap.data().proposedBy === uid) {
+      throw new Error('You can’t vote on an edge you proposed.')
+    }
     const before: number = voteSnap.exists() ? voteSnap.data().value : 0
     if (before === value) return // nothing to change
 
