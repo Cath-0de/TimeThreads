@@ -157,6 +157,8 @@ service cloud.firestore {
 
       function edgeVote() {
         return resource.data.kind == 'community'
+          // No self-votes: the proposer can't help promote their own edge.
+          && resource.data.proposedBy != uid()
           && changed().hasOnly(['upvotes', 'downvotes', 'score', 'promoted'])
           && voteDeltaOk(edgeId)
           && incoming().promoted == (incoming().score >= promoteAt());
