@@ -201,6 +201,9 @@ export async function castVote(
     if (targetType === 'edge' && targetSnap.data().proposedBy === uid) {
       throw new Error('You can’t vote on an edge you proposed.')
     }
+    if (targetType === 'post' && targetSnap.data().author === uid) {
+      throw new Error('You can’t vote on your own post.')
+    }
     const before: number = voteSnap.exists() ? voteSnap.data().value : 0
     if (before === value) return // nothing to change
 

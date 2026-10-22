@@ -200,6 +200,16 @@ describe('community edges and votes', () => {
     await assertFails(batch.commit())
   })
 
+  it('does not let an author vote on their own post', async () => {
+    const { alice, postId } = await setup()
+    await expect(castVote(alice, 'alice', 'post', postId, 1)).rejects.toThrow()
+    // Bypassing castVote's check still hits the rule.
+    const batch = writeBatch(alice)
+    batch.set(doc(alice, 'votes', voteId('alice', postId)), { uid: 'alice', targetType: 'post', targetId: postId, value: 1 })
+    batch.update(doc(alice, 'posts', postId), { upvotes: 1, score: 1 })
+    await assertFails(batch.commit())
+  })
+
   it('lets users vote on posts the same way', async () => {
     const { postId } = await setup()
     await assertSucceeds(castVote(asUser('bob'), 'bob', 'post', postId, 1))

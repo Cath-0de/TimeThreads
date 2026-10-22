@@ -217,7 +217,9 @@ service cloud.firestore {
       }
 
       function postVote() {
-        return changed().hasOnly(['upvotes', 'downvotes', 'score'])
+        // No self-votes: authors can't upvote their own posts.
+        return resource.data.author != uid()
+          && changed().hasOnly(['upvotes', 'downvotes', 'score'])
           && voteDeltaOk(postId);
       }
     }
