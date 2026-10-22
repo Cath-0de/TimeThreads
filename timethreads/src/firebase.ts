@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 
+
 // The config values are read from timethreads/.env.local, which is not in git.
 // See SETUP.txt for how to create that file.
 const firebaseConfig = {
