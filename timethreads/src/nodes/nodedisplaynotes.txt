@@ -11,6 +11,33 @@ WHERE
   } 
 }
 LIMIT 150
+for politicians: 
+SELECT DISTINCT ?politician ?politicianLabel ?birthDate ?deathDate
+WHERE
+{
+  ?politician wdt:P106 wd:Q82955 .
+  OPTIONAL{?politician wdt:P569 ?birthDate .}     # start date
+  OPTIONAL{?politician wdt:P582 ?deathDate . }    # end date
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en".
+  } 
+}
+LIMIT 150
+
+SELECT DISTINCT ?artist ?artistLabel ?birthDate ?deathDate
+WHERE
+{
+  ?artist wdt:P106 wd:Q483501 .
+  OPTIONAL{?artist wdt:P569 ?birthDate .}     # start date
+  OPTIONAL{?artist wdt:P582 ?deathDate . }    # end date
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en".
+  } 
+}
+LIMIT 150
+
 To format the json I used is https://json-indent.com/ but there might be a better solution for larger data sets
 
 For the JSON file, the format must be:
@@ -19,7 +46,7 @@ For the JSON file, the format must be:
       {
       "data" : {
             "id":"Q65967183",
-            "label":"Reggie",
+            "label":"",
             "start": "",
             "end": "",
             "tags": "",
@@ -28,8 +55,12 @@ For the JSON file, the format must be:
         },
         {
         "data" : {
-            "id":"Q120181582",
-            "label":"Xenophon"
+            "id":"Q65967183",
+            "label":"",
+            "start": "",
+            "end": "",
+            "tags": "",
+            "visits": ""
             }
         },
     ],
@@ -43,5 +74,18 @@ For the JSON file, the format must be:
   ]
 }
 
+
+SELECT DISTINCT ?scientist ?scientistLabel ?birthDate ?deathDate
+WHERE
+{
+  ?scientist wdt:P106 wd:Q901 .
+  OPTIONAL{?scientist wdt:P569 ?birthDate .}     # start date
+  OPTIONAL{?scientist wdt:P582 ?deathDate . }    # end date
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en".
+  } 
+}
+LIMIT 150
 
 Use npx.cmd vite to run
