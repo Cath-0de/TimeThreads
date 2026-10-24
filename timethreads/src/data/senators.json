@@ -1,0 +1,798 @@
+{
+    "nodes": [
+        {
+            "senator": "http://www.wikidata.org/entity/Q350843",
+            "senatorLabel": "Adam Schiff",
+            "districtLabel": "California Class 1 senate seat",
+            "partyLabel": "Democratic Party",
+            "assumedOffice": "2025-01-03T00:00:00Z",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Schiff_Adam_119th_Congress.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator": "http://www.wikidata.org/entity/Q138781196",
+            "senatorLabel": "Alan Armstrong",
+            "districtLabel": "Oklahoma Class 2 senate seat",
+            "partyLabel": "Republican Party",
+            "assumedOffice": "2026-03-24T00:00:00Z",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Alan_S_Armstrong_official_portrait_%28crop%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator": "http://www.wikidata.org/entity/Q4717593",
+            "senatorLabel": "Alex Padilla",
+            "districtLabel": "California Class 3 senate seat",
+            "partyLabel": "Democratic Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/b/b2/Alex_Padilla_117th_Congress_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"},
+        {  
+            "senator":"http://www.wikidata.org/entity/Q22237",
+            "senatorLabel":"Amy Klobuchar",
+            "districtLabel":"Minnesota Class 1 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/b/b7/Amy_Klobuchar%2C_official_portrait%2C_113th_Congress.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {   "senator":"http://www.wikidata.org/entity/Q55639180",
+            "senatorLabel":"Andy Kim",
+            "districtLabel":"New Jersey Class 1 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/3/31/Sen_Andy_Kim_118th_Congress_%28cropped3%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q58755148",
+            "senatorLabel":"Angela Alsobrooks",
+            "districtLabel":"Maryland Class 1 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/4/47/Sen._Angela_Alsobrooks_official_Senate_photo%2C_119th_Congress.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q544464",
+            "senatorLabel":"Angus King",
+            "districtLabel":"Maine Class 1 senate seat",
+            "partyLabel":"independent politician",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/a/a7/Angus_King%2C_official_portrait%2C_113th_Congress.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q58333626",
+            "senatorLabel":"Ashley Moody",
+            "districtLabel":"Florida Class 3 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2025-01-21T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/e/eb/Senator_Ashley_Moody_from_Florida.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {   "senator":"http://www.wikidata.org/entity/Q324256",
+            "senatorLabel":"Ben Ray Luján",
+            "districtLabel":"New Mexico Class 2 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/6/6b/Ben_Lujan_official_photo.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q124858476",
+            "senatorLabel":"Bernie Moreno-Mejía",
+            "districtLabel":"Ohio Class 1 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/e/e0/Sen._Bernie_Moreno_official_photo%2C_119th_Congress_%28HR%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q359442",
+            "senatorLabel":"Bernie Sanders",
+            "districtLabel":"Vermont Class 1 senate seat",
+            "partyLabel":"independent politician",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/2/2e/Bernie_Sanders_2023.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q861999",
+            "senatorLabel":"Bill Cassidy",
+            "districtLabel":"Louisiana Class 2 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/a/ab/Bill_Cassidy%2C_official_portrait%2C_112th_Congress.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+                "senator":"http://www.wikidata.org/entity/Q27734214",
+                "senatorLabel":"Bill Hagerty",
+                "districtLabel":"Tennessee Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"https://upload.wikimedia.org/wikipedia/commons/6/6c/Bill_Hagerty_2025_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+         {
+                "senator":"http://www.wikidata.org/entity/Q1827902",
+                "senatorLabel":"Brian Schatz",
+                "districtLabel":"Hawaii Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"https://upload.wikimedia.org/wikipedia/commons/2/27/Brian_Schatz%2C_official_portrait%2C_113th_Congress_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+       
+        {
+                "senator":"http://www.wikidata.org/entity/Q5052604",
+                "senatorLabel":"Catherine Cortez Masto",
+                "districtLabel":"Nevada Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"https://upload.wikimedia.org/wikipedia/commons/3/3d/Catherine_Cortez_Masto_official_portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+                "senator":"http://www.wikidata.org/entity/Q923242",
+                "senatorLabel":"Chris Coons",
+                "districtLabel":"Delaware Class 2 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"https://upload.wikimedia.org/wikipedia/commons/2/20/Chris_Coons_2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q1077594",
+            "senatorLabel":"Chris Murphy",
+            "districtLabel":"Connecticut Class 1 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/c/ca/Chris_Murphy%2C_official_portrait%2C_113th_Congress.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q1077819",
+            "senatorLabel":"Chris Van Hollen","districtLabel":
+            "Maryland Class 3 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/b/b2/Chris_Van_Hollen_official_portrait_115th_Congress.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"},
+        {
+            "senator":"http://www.wikidata.org/entity/Q529294",
+            "senatorLabel":"Chuck Grassley",
+            "districtLabel":"Iowa Class 3 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/4/4a/Sen_Chuck_Grassley_official.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q380900",
+            "senatorLabel":"Chuck Schumer",
+            "districtLabel":"New York Class 3 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/8/89/Chuck_Schumer_official_photo.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q5120540",
+            "senatorLabel":"Cindy Hyde-Smith",
+            "districtLabel":"Mississippi Class 2 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"https://upload.wikimedia.org/wikipedia/commons/d/d7/Cindy_Hyde-Smith_official_photo.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q1135767",
+            "senatorLabel":"Cory Booker",
+            "districtLabel":"New Jersey Class 2 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Cory%20Booker%2C%20official%20portrait%20%28119th%20Congress%29.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q456064",
+            "senatorLabel":"Cynthia Lummis",
+            "districtLabel":"Wyoming Class 2 senate seat",
+            "partyLabel":"Republican Party","assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Cynthia%20Lummis%20U.S.%20Senator.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q5218668",
+            "senatorLabel":"Dan Sullivan",
+            "districtLabel":"Alaska Class 2 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Senator%20Dan%20Sullivan%20official.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q140537772",
+            "senatorLabel":"Darline Graham",
+            "districtLabel":"South Carolina Class 2 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2026-07-14T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Official%20portrait%20of%20Darline%20Graham%2C%20member%20of%20the%20United%20States%20Senate%20from%20South%20Carolina%20%282026%29.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q5234544",
+            "senatorLabel":"David H. McCormick",
+            "districtLabel":"Pennsylvania Class 1 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/McCormick%20Portrait%20%28HR%29.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q2580649",
+            "senatorLabel":"Deb Fischer",
+            "districtLabel":"Nebraska Class 1 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Deb%20Fischer%2C%20official%20portrait%2C%20113th%20Congress.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q434804",
+            "senatorLabel":"Dick Durbin",
+            "districtLabel":"Illinois Class 2 senate seat",
+            "partyLabel":"Democratic Party","assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Dick%20Durbin%20October%202017%20%28cropped%29.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q1282411",
+            "senatorLabel":"Ed Markey",
+            "districtLabel":"Massachusetts Class 2 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Ed%20Markey%2C%20Official%20Portrait%2C%20112th%20Congress%202.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q30323721",
+            "senatorLabel":"Elissa Slotkin",
+            "districtLabel":"Michigan Class 1 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Elissa%20Slotkin%20119th%20Congress.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q434706",
+            "senatorLabel":"Elizabeth Warren",
+            "districtLabel":"Massachusetts Class 1 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Elizabeth%20Warren%20%2847992252913%29%20%28cropped%29.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q5387455",
+            "senatorLabel":"Eric Schmitt",
+            "districtLabel":"Missouri Class 3 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sen.%20Eric%20Schmitt%2C%20official%20portrait%2C%20118th%20Congress.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q1494930",
+            "senatorLabel":"Gary Peters",
+            "districtLabel":"Michigan Class 2 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/U.S.%20Rep.%20Gary%20Peters%202013%20Official%20Photo.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q528979",
+            "senatorLabel":"Jack Reed",
+            "districtLabel":"Rhode Island Class 2 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Jack%20Reed%2C%20official%20portrait%2C%20112th%20Congress.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q27825033",
+            "senatorLabel":"Jacky Rosen",
+            "districtLabel":"Nevada Class 1 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Jacky%20Rosen.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q45940",
+            "senatorLabel":"James Lankford",
+            "districtLabel":"Oklahoma Class 3 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/James%20Lankford%2C%20Official%20Portrait%2C%20112th%20Congress.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q270316",
+            "senatorLabel":"Jeanne Shaheen",
+            "districtLabel":"New Hampshire Class 2 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Shaheen%20Senate%20Portrait.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q1368405",
+            "senatorLabel":"Jeff Merkley",
+            "districtLabel":"Oregon Class 2 senate seat",
+            "partyLabel":"Democratic Party",
+            "assumedOffice":"2025-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Jeff%20Merkley%2C%20115th%20official%20photo.jpg"
+        },
+        {
+            "senator":"http://www.wikidata.org/entity/Q1365787",
+            "senatorLabel":"Jerry Moran",
+            "districtLabel":"Kansas Class 3 senate seat",
+            "partyLabel":"Republican Party",
+            "assumedOffice":"2023-01-03T00:00:00Z",
+            "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Jerry%20Moran%2C%20official%20portrait%2C%20112th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q16146788",
+                "senatorLabel":"Jim Banks",
+                "districtLabel":"Indiana Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sen.%20Jim%20Banks%20official%20Senate%20photo%2C%20119th%20Congress%20%28HR%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q20684288",
+                "senatorLabel":"Jim Justice",
+                "districtLabel":"West Virginia Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-14T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Jim%20Justice%2C%202025.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q721871",
+                "senatorLabel":"Jim Risch",
+                "districtLabel":"Idaho Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Jim%20Risch%20official%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q720521",
+                "senatorLabel":"John Barrasso",
+                "districtLabel":"Wyoming Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sen.%20John%20Barrasso%20Official%20Portrait%207.17.07.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q1344707",
+                "senatorLabel":"John Boozman",
+                "districtLabel":"Arkansas Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/John%20Boozman%2C%20official%20portrait%2C%20112th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q719568",
+                "senatorLabel":"John Cornyn",
+                "districtLabel":"Texas Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/John%20Cornyn%20official%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q3181500",
+                "senatorLabel":"John Fetterman",
+                "districtLabel":"Pennsylvania Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/John%20Fetterman%20US%20Senate%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q430518",
+                "senatorLabel":"John Hickenlooper",
+                "districtLabel":"Colorado Class 2 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/John%20Hickenlooper%2C%20official%20portrait%2C%20117th%20Congress.jpeg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q374762",
+                "senatorLabel":"John Hoeven",
+                "districtLabel":"North Dakota Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/John%20Hoeven%2C%20Official%20Senate%20Portrait%2C%20112th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q6250211",
+                "senatorLabel":"John N. Kennedy",
+                "districtLabel":"Louisiana Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/John%20Kennedy%2C%20official%20portrait%2C%20115th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q6253810",
+                "senatorLabel":"John R. Curtis",
+                "districtLabel":"Utah Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Rep%20John%20Curtis.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q462981",
+                "senatorLabel":"John Thune",
+                "districtLabel":"South Dakota Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/John%20Thune%20117th%20Congress%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q6270269",
+                "senatorLabel":"Jon Husted",
+                "districtLabel":"Ohio Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-21T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sen.%20Jon%20Husted%20official%20portrait%2C%20119th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q28839536",
+                "senatorLabel":"Jon Ossoff",
+                "districtLabel":"Georgia Class 2 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Jon%20Ossoff%20Senate%20Portrait%202021.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q13475242",
+                "senatorLabel":"Joni Ernst",
+                "districtLabel":"Iowa Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Joni%20Ernst%2C%20official%20portrait%2C%20116th%20Congress%202%20%28cropped%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q23020745",
+                "senatorLabel":"Josh Hawley",
+                "districtLabel":"Missouri Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Josh%20Hawley%2C%20official%20portrait%2C%20116th%20congress%20%28cropped%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q111285444",
+                "senatorLabel":"Katie Britt",
+                "districtLabel":"Alabama Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Katie%20Boyd%20Britt%20official%20Senate%20photo.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q3957020",
+                "senatorLabel":"Kevin Cramer",
+                "districtLabel":"North Dakota Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Kevin%20Cramer%2C%20official%20portrait%2C%20113th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q22222",
+                "senatorLabel":"Kirsten Gillibrand",
+                "districtLabel":"New York Class 1 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/KirstenGillibrand.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q26899141",
+                "senatorLabel":"Lisa Blunt Rochester",
+                "districtLabel":"Delaware Class 1 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Senator%20Blunt%20Rochester%20Official%20Portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q22360",
+                "senatorLabel":"Lisa Murkowski",
+                "districtLabel":"Alaska Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Lisa%20Murkowski.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q24053",
+                "senatorLabel":"Maggie Hassan",
+                "districtLabel":"New Hampshire Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Maggie%20Hassan%2C%20official%20portrait%2C%20115th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q22250",
+                "senatorLabel":"Maria Cantwell",
+                "districtLabel":"Washington Class 1 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Maria%20Cantwell%2C%20official%20portrait%2C%20110th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q357510",
+                "senatorLabel":"Mark Kelly",
+                "districtLabel":"Arizona Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Mark%20Kelly%20Official%20Portrait%20119th.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q453893",
+                "senatorLabel":"Mark Warner",
+                "districtLabel":"Virginia Class 2 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Mark%20Warner%2C%20official%20112th%20Congress%20Senate%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q458971",
+                "senatorLabel":"Marsha Blackburn",
+                "districtLabel":"Tennessee Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sen.%20Marsha%20Blackburn%20%28R-TN%29%20official%20headshot%20-%20116th%20Congress%20%28cropped%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q565374",
+                "senatorLabel":"Martin Heinrich",
+                "districtLabel":"New Mexico Class 1 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20Official%20Headshot%202019.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q16476",
+                "senatorLabel":"Mazie Hirono",
+                "districtLabel":"Hawaii Class 1 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Mazie%20Hirono%2C%20official%20portrait%2C%20113th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q554792",
+                "senatorLabel":"Michael Bennet",
+                "districtLabel":"Colorado Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Ruhle%2C%20Bennet%20and%20Carville.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q734319",
+                "senatorLabel":"Mike Crapo",
+                "districtLabel":"Idaho Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Mike%20Crapo%20official%20photo.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q627098",
+                "senatorLabel":"Mike Lee",
+                "districtLabel":"Utah Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Mike%20Lee%20official%20portrait%20112th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q722503",
+                "senatorLabel":"Mike Rounds",
+                "districtLabel":"South Dakota Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Mike%20Rounds%20official%20Senate%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q355522",
+                "senatorLabel":"Mitch McConnell",
+                "districtLabel":"Kentucky Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Mitch%20McConnell%202016%20official%20photo%20%281%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q258825",
+                "senatorLabel":"Patty Murray",
+                "districtLabel":"Washington Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Patty%20Murray%2C%20official%20portrait%2C%20113th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q6106781",
+                "senatorLabel":"Pete Ricketts",
+                "districtLabel":"Nebraska Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sen.%20Pete%20Ricketts%20official%20portrait%2C%20118th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q1112656",
+                "senatorLabel":"Peter Welch",
+                "districtLabel":"Vermont Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Peter%20Welch%20official%20photo%20%28cropped%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q463557",
+                "senatorLabel":"Rand Paul",
+                "districtLabel":"Kentucky Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Rand%20Paul%20Portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q84146599",
+                "senatorLabel":"Raphael Warnock",
+                "districtLabel":"Georgia Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Raphael%20Warnock%20official%20photo.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q2023708",
+                "senatorLabel":"Richard Blumenthal",
+                "districtLabel":"Connecticut Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Richard%20Blumenthal%20Official%20Portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q439729",
+                "senatorLabel":"Rick Scott",
+                "districtLabel":"Florida Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Official%20Portrait%20of%20Senator%20Rick%20Scott%20%28R-FL%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q27923290",
+                "senatorLabel":"Roger Marshall",
+                "districtLabel":"Kansas Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Roger%20Marshall%20117th%20Congress%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q390491",
+                "senatorLabel":"Roger Wicker",
+                "districtLabel":"Mississippi Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/U.S.%20Senator%20Roger%20F.%20Wicker%20Official%20Portrait%2C%202018.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q970272",
+                "senatorLabel":"Ron Johnson",
+                "districtLabel":"Wisconsin Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Ron%20Johnson%2C%20official%20portrait%2C%20112th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q529344",
+                "senatorLabel":"Ron Wyden",
+                "districtLabel":"Oregon Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Ron%20Wyden%20117th%20Congress.jpeg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q16218474",
+                "senatorLabel":"Ruben Gallego",
+                "districtLabel":"Arizona Class 1 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sen.%20Ruben%20Gallego%20official%20Senate%20photo%2C%20119th%20Congress%20%28crop%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q652066",
+                "senatorLabel":"Sheldon Whitehouse",
+                "districtLabel":"Rhode Island Class 1 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sheldon%20Whitehouse%2C%20official%20portrait%2C%20116th%20congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q459618",
+                "senatorLabel":"Shelley Moore Capito",
+                "districtLabel":"West Virginia Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Shelley%20Moore%20Capito%2C%20official%20photo%20portrait%2C%20color.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q3200900",
+                "senatorLabel":"Steve Daines",
+                "districtLabel":"Montana Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Steve%20Daines%20official%20Senate%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q22279",
+                "senatorLabel":"Susan Collins",
+                "districtLabel":"Maine Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Senator%20Susan%20Collins%202014%20official%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q40628",
+                "senatorLabel":"Tammy Baldwin",
+                "districtLabel":"Wisconsin Class 1 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Tammy%20Baldwin%2C%20official%20portrait%2C%20113th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q3036410",
+                "senatorLabel":"Tammy Duckworth",
+                "districtLabel":"Illinois Class 3 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Tammy%20Duckworth%2C%20official%20portrait%2C%20115th%20Congress.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q27733792",
+                "senatorLabel":"Ted Budd",
+                "districtLabel":"North Carolina Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Ted%20Budd%202024%20%28cropped%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q2036942",
+                "senatorLabel":"Ted Cruz",
+                "districtLabel":"Texas Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Ted%20Cruz%20senatorial%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q7786750",
+                "senatorLabel":"Thom Tillis",
+                "districtLabel":"North Carolina Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Senator%20Thom%20Tillis%20Official%20Portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q359888",
+                "senatorLabel":"Tim Kaine",
+                "districtLabel":"Virginia Class 1 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Tim%20Kaine%2C%20official%20portrait%20%28119th%20Congress%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q561315",
+                "senatorLabel":"Tim Scott",
+                "districtLabel":"South Carolina Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Tim%20Scott%20official%20portrait.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q124433916",
+                "senatorLabel":"Tim Sheehy",
+                "districtLabel":"Montana Class 1 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sen.%20Tim%20Sheehy%20official%20Senate%20photo%2C%20119th%20Congress%20%28HR%29.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q18631509",
+                "senatorLabel":"Tina Smith",
+                "districtLabel":"Minnesota Class 2 senate seat",
+                "partyLabel":"Democratic Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Tina%20Smith%202015.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q25483",
+                "senatorLabel":"Todd Young",
+                "districtLabel":"Indiana Class 3 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sen.%20Todd%20Young%20official%20photo.jpg"
+            },
+            {
+                "senator":"http://www.wikidata.org/entity/Q3090307",
+                "senatorLabel":"Tom Cotton",
+                "districtLabel":"Arkansas Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2023-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Tom%20Cotton%20official%20Senate%20photo.jpg"},
+            {
+                "senator":"http://www.wikidata.org/entity/Q7819948",
+                "senatorLabel":"Tommy Tuberville",
+                "districtLabel":"Alabama Class 2 senate seat",
+                "partyLabel":"Republican Party",
+                "assumedOffice":"2025-01-03T00:00:00Z",
+                "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Tommy%20Tuberville%20117th%20Congress%20Portrait.jpg"
+            }
+        ]
+}

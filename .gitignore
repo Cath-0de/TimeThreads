@@ -5,3 +5,7 @@
 # Admin SDK service account keys (pipeline) — never commit these
 serviceAccount*.json
 *-firebase-adminsdk-*.json
+
+
+.env.local
+
