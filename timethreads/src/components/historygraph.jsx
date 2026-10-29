@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import cytoscape from "cytoscape";
 import historyData from "../data/historicalsenators300.json";
  
+//This could be a good example for if we want to recolor based on tags
 /*
 const partyColors = {
   "Democratic Party": "#2563eb",
