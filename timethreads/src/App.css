@@ -1,11 +1,68 @@
 #home {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
   place-content: center;
   place-items: center;
   flex-grow: 1;
   padding: 32px 20px;
+}
+
+.auth-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(100%, 380px);
+  text-align: left;
+}
+
+.auth-panel h2 {
+  text-align: center;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-form label {
+  color: var(--text-h);
+}
+
+.auth-form input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-h);
+  background: var(--bg);
+  font: inherit;
+}
+
+.auth-form input:focus-visible {
+  outline: 2px solid var(--text-h);
+  outline-offset: 2px;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  content: '';
+}
+
+.auth-divider span {
+  line-height: 1;
 }
 
 .sign-in {
@@ -21,7 +78,7 @@
     color 0.2s,
     background 0.2s;
 
-  &:hover {
+  &:not(:disabled):hover {
     color: var(--text-h);
     background: transparent;
   }
@@ -29,4 +86,66 @@
     outline: 2px solid var(--text-h);
     outline-offset: 3px;
   }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+}
+
+.google-sign-in {
+  padding: 12px 20px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-h);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.google-sign-in:not(:disabled):hover {
+  background: #1b1b1b;
+}
+
+.google-sign-in:focus-visible {
+  outline: 2px solid var(--text-h);
+  outline-offset: 3px;
+}
+
+.google-sign-in:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.auth-switch {
+  text-align: center;
+}
+
+.auth-switch button {
+  padding: 0;
+  border: 0;
+  color: var(--text-h);
+  background: none;
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.auth-switch button:focus-visible {
+  outline: 2px solid var(--text-h);
+  outline-offset: 3px;
+}
+
+.auth-switch button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.auth-error {
+  color: #ff9a9a;
+}
+
+.account-status {
+  overflow-wrap: anywhere;
+  text-align: center;
 }
