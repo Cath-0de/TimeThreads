@@ -4,7 +4,6 @@
 // writing to Firestore some other way will fail with "Missing or
 // insufficient permissions". Each function takes `db` so tests can pass an
 // emulator instance; in the app pass `db` from './firebase'.
-
 import {
   collection,
   doc,
@@ -12,9 +11,13 @@ import {
   increment,
   runTransaction,
   serverTimestamp,
+  Timestamp,
   writeBatch,
   type Firestore,
 } from 'firebase/firestore'
+
+import { ADJECTIVES, ANIMALS } from './pseudonymWords.ts'
+
 import {
   COL,
   PROMOTE_AT,
@@ -32,22 +35,40 @@ import {
 // Users
 // ---------------------------------------------------------------------------
 
-const ADJECTIVES = ['Amber', 'Gilded', 'Quiet', 'Wandering', 'Ashen', 'Ivory', 'Crimson', 'Lantern']
-const ANIMALS = ['Otter', 'Falcon', 'Badger', 'Heron', 'Lynx', 'Tortoise', 'Raven', 'Fox']
-
 function randomPseudonym(): string {
-  const pick = (list: string[]) => list[Math.floor(Math.random() * list.length)]
-  return `${pick(ADJECTIVES)} ${pick(ANIMALS)} ${Math.floor(100 + Math.random() * 900)}`
+  const pick = (list: readonly string[]) => list[Math.floor(Math.random() * list.length)]
+  return `${pick(ADJECTIVES)} ${pick(ANIMALS)}`
 }
 
-/** Creates the user doc on first sign-in. Safe to call on every sign-in. */
+// How many random names to try before giving up. With 24,000 combinations
+// this only matters once most names are taken.
+const PSEUDONYM_ATTEMPTS = 20
+
+/**
+ * Creates the user doc on first sign-in with a unique "Adjective Animal"
+ * pseudonym. Safe to call on every sign-in: an existing user keeps theirs.
+ *
+ * Uniqueness: each name is claimed by a doc at pseudonyms/{name}, written in
+ * the same transaction as the user doc. The rules refuse a claim on a name
+ * that already has one, so two users can never end up with the same name.
+ */
 export async function ensureUser(db: Firestore, uid: string): Promise<UserDoc> {
-  const ref = doc(db, COL.users, uid)
-  const snap = await getDoc(ref)
-  if (snap.exists()) return snap.data() as UserDoc
-  const fresh = { pseudonym: randomPseudonym(), interests: [], createdAt: serverTimestamp() }
-  await writeBatch(db).set(ref, fresh).commit()
-  return (await getDoc(ref)).data() as UserDoc
+  const userRef = doc(db, COL.users, uid)
+  return runTransaction(db, async (tx) => {
+    const existing = await tx.get(userRef)
+    if (existing.exists()) return existing.data() as UserDoc
+
+    for (let i = 0; i < PSEUDONYM_ATTEMPTS; i++) {
+      const pseudonym = randomPseudonym()
+      const claimRef = doc(db, COL.pseudonyms, pseudonym)
+      if ((await tx.get(claimRef)).exists()) continue // taken, try another
+
+      tx.set(claimRef, { claimedAt: serverTimestamp() })
+      tx.set(userRef, { pseudonym, interests: [], createdAt: serverTimestamp() })
+      return { pseudonym, interests: [], createdAt: Timestamp.now() }
+    }
+    throw new Error('Could not find a free pseudonym. Add more words to src/pseudonymWords.ts.')
+  })
 }
 
 export async function setInterests(db: Firestore, uid: string, interests: InterestTag[]) {
@@ -112,14 +133,19 @@ async function pseudonymOf(db: Firestore, uid: string): Promise<string> {
   return (snap.data() as UserDoc).pseudonym
 }
 
-/** Adds a post to a node's or edge's thread and bumps that target's activity. */
+/* Adds a post to a node's or edge's thread and marks the target as active.
+ * Edges also count their posts; nodes do not keep a post count.
+ */
 export async function createPost(db: Firestore, uid: string, p: NewPost): Promise<string> {
   const pseudonym = await pseudonymOf(db, uid)
   const postRef = doc(collection(db, COL.posts))
-  const targetRef = doc(db, p.targetType === 'node' ? COL.nodes : COL.edges, p.targetId)
   const batch = writeBatch(db)
   batch.set(postRef, postFields(uid, pseudonym, p))
-  batch.update(targetRef, { postCount: increment(1), lastActivityAt: serverTimestamp() })
+  if (p.targetType === 'node') {
+    batch.update(doc(db, COL.nodes, p.targetId), { lastActivityAt: serverTimestamp() })
+  } else {
+    batch.update(doc(db, COL.edges, p.targetId), { postCount: increment(1), lastActivityAt: serverTimestamp() })
+  }
   await batch.commit()
   return postRef.id
 }

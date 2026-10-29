@@ -19,6 +19,7 @@ export const COL = {
   posts: 'posts',
   votes: 'votes',
   activity: 'activity', // activity/{yyyy-mm-dd}/nodes/{nodeId}
+  pseudonyms: 'pseudonyms', // pseudonyms/{name}: one doc per taken name
 } as const
 
 // A community edge is promoted once its score reaches this. Must match
@@ -26,13 +27,13 @@ export const COL = {
 export const PROMOTE_AT = 5
 
 export const INTEREST_TAGS = [
-  'wars',
-  'politics',
-  'science',
-  'art',
-  'religion',
-  'exploration',
-  'economics',
+  'Wars & Conflicts',
+  'Politics & Government',
+  'Science & Technology',
+  'Art & Culture',
+  'Religion & Philosophy',
+  'Exploration & Migration',
+  'Economics & Trade',
 ] as const
 export type InterestTag = (typeof INTEREST_TAGS)[number]
 
@@ -41,9 +42,16 @@ export type InterestTag = (typeof INTEREST_TAGS)[number]
 // ---------------------------------------------------------------------------
 
 export interface UserDoc {
-  pseudonym: string // generated once; copied onto every post
+  pseudonym: string // "Adjective Animal", unique, generated once; copied onto every post
   interests: InterestTag[]
   createdAt: Timestamp
+}
+
+// pseudonyms/{name}  - claims a name so no two users share it. Written once,
+// together with the user doc, and never changed or deleted. Holds no user ID
+// so a name can't be traced back to an account.
+export interface PseudonymDoc {
+  claimedAt: Timestamp
 }
 
 // users/{uid}/stars/{targetId}  (Follow tab)
@@ -72,8 +80,8 @@ export interface NodeDoc {
   summary: string // Wikipedia intro, 3-4 sentences
   wikiUrl: string
   externalLinks: string[]
-  // Counters the app keeps up to date (rules only allow +/-1 steps).
-  postCount: number
+  // Kept up to date by the app: starCount moves with each star/unstar,
+  // lastActivityAt is set when someone posts in the node's thread.
   starCount: number
   lastActivityAt: Timestamp | null
 }

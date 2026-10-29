@@ -12,7 +12,7 @@ import {
   initializeTestEnvironment,
   type RulesTestEnvironment,
 } from '@firebase/rules-unit-testing'
-import { doc, getDoc, setDoc, updateDoc, writeBatch, type Firestore } from 'firebase/firestore'
+import { deleteDoc, doc, getDoc, serverTimestamp, setDoc, updateDoc, writeBatch, type Firestore } from 'firebase/firestore'
 import { castVote, createPost, deletePost, ensureUser, proposeEdge, recordVisit, setStar } from '../src/actions'
 import { PROMOTE_AT, dayKey, voteId } from '../src/schema'
 
@@ -35,7 +35,7 @@ beforeEach(async () => {
   // Seed two nodes and one sourced edge the way the pipeline would.
   await env.withSecurityRulesDisabled(async (ctx) => {
     const db = ctx.firestore() as unknown as Firestore
-    const node = { name: '', dateStart: null, dateEnd: null, tags: [], summary: '', wikiUrl: '', externalLinks: [], postCount: 0, starCount: 0, lastActivityAt: null }
+    const node = { name: '', dateStart: null, dateEnd: null, tags: [], summary: '', wikiUrl: '', externalLinks: [], starCount: 0, lastActivityAt: null }
     await setDoc(doc(db, 'nodes/Q1'), { ...node, name: 'Napoleon' })
     await setDoc(doc(db, 'nodes/Q2'), { ...node, name: 'Battle of Waterloo' })
     await setDoc(doc(db, 'edges/Q2_defeated_Q1'), {
@@ -57,6 +57,38 @@ describe('users', () => {
     await assertFails(getDoc(doc(anon(), 'nodes/Q1')))
   })
 
+    it('gives an Adjective Animal pseudonym with no number', async () => {
+    const { pseudonym } = await ensureUser(asUser('alice'), 'alice')
+    expect(pseudonym).toMatch(/^[A-Z][a-z]+ [A-Z][a-z]+$/)
+  })
+
+  it('keeps the same pseudonym on later sign-ins', async () => {
+    const alice = asUser('alice')
+    const first = await ensureUser(alice, 'alice')
+    const again = await ensureUser(alice, 'alice')
+    expect(again.pseudonym).toBe(first.pseudonym)
+  })
+
+  it('never gives two users the same pseudonym', async () => {
+    const { pseudonym } = await ensureUser(asUser('alice'), 'alice')
+    const bob = asUser('bob')
+    const batch = writeBatch(bob)
+    batch.set(doc(bob, 'pseudonyms', pseudonym), { claimedAt: serverTimestamp() })
+    batch.set(doc(bob, 'users/bob'), { pseudonym, interests: [], createdAt: serverTimestamp() })
+    await assertFails(batch.commit())
+  })
+
+  it('rejects a pseudonym that was not claimed', async () => {
+    const bob = asUser('bob')
+    await assertFails(setDoc(doc(bob, 'users/bob'), { pseudonym: 'Amber Otter', interests: [], createdAt: serverTimestamp() }))
+  })
+
+  it('does not let a user claim names for someone else or release them', async () => {
+    const { pseudonym } = await ensureUser(asUser('alice'), 'alice')
+    await assertFails(setDoc(doc(asUser('bob'), 'pseudonyms', 'Quiet Fox'), { claimedAt: serverTimestamp() }))
+    await assertFails(deleteDoc(doc(asUser('alice'), 'pseudonyms', pseudonym)))
+  })
+
   it('does not let a user rename their pseudonym', async () => {
     const alice = asUser('alice')
     await ensureUser(alice, 'alice')
@@ -65,12 +97,17 @@ describe('users', () => {
 })
 
 describe('posts', () => {
-  it('creates a post and bumps the node activity', async () => {
+    it('creates a post and marks the node active, without a post count', async () => {
     const alice = asUser('alice')
     await ensureUser(alice, 'alice')
     await assertSucceeds(createPost(alice, 'alice', { targetType: 'node', targetId: 'Q1', body: 'Hi', kind: 'viewpoint' }))
-    const node = await getDoc(doc(alice, 'nodes/Q1'))
-    expect(node.data()?.postCount).toBe(1)
+    const node = (await getDoc(doc(alice, 'nodes/Q1'))).data()!
+    expect(node.lastActivityAt).not.toBeNull()
+    expect(node.postCount).toBeUndefined()
+  })
+
+  it('does not let anyone add a post count to a node', async () => {
+    await assertFails(updateDoc(doc(asUser('alice'), 'nodes/Q1'), { postCount: 1 }))
   })
 
   it('rejects a post under someone else’s pseudonym or author', async () => {
