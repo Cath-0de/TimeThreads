@@ -1,5 +1,5 @@
 import HistoryGraph from "./components/historygraph";
-import SenatorGraph from "./components/SenatorGraph";
+//import SenatorGraph from "./components/SenatorGraph";
 
 export default function App() {
   return (

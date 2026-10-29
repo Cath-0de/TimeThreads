@@ -75,3 +75,41 @@ Node schema:
   ]
 }
 
+To run: npx vite (make sure you cd into timethreads first!)
+
+
+
+Edge Style code I remved: 
+cy.on("mouseover", "edge", (event) => {
+  const edge = event.target;
+  const position = event.renderedPosition;
+
+  setHoveredEdge({
+    text: edge.data("relationship"),
+    x: position.x,
+    y: position.y,
+  });
+});
+
+cy.on("mouseout", "edge", () => {
+  setHoveredEdge(null);
+});
+
+{hoveredEdge && (
+    <div
+      style={{
+        position: "absolute",
+        left: hoveredEdge.x + 12,
+        top: hoveredEdge.y + 12,
+        padding: "8px 12px",
+        background: "#1f2937",
+        color: "white",
+        borderRadius: "6px",
+        fontSize: "13px",
+        pointerEvents: "none",
+        zIndex: 10,
+      }}
+    >
+      {hoveredEdge.text}
+    </div>
+  )}
