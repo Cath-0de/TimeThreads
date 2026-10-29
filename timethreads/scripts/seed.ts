@@ -27,7 +27,7 @@ const NODES: Record<string, Partial<NodeDoc>> = {
     name: 'Napoleon',
     dateStart: '1769-08-15',
     dateEnd: '1821-05-05',
-    tags: ['wars', 'politics'],
+    tags: ['Wars & Conflicts', 'Politics & Government'],
     summary: 'French military commander and political leader who rose to prominence during the French Revolution.',
     wikiUrl: 'https://en.wikipedia.org/wiki/Napoleon',
   },
@@ -35,7 +35,7 @@ const NODES: Record<string, Partial<NodeDoc>> = {
     name: 'Battle of Waterloo',
     dateStart: '1815-06-18',
     dateEnd: '1815-06-18',
-    tags: ['wars'],
+    tags: ['Wars & Conflicts'],
     summary: 'Battle in present-day Belgium that ended the Napoleonic Wars.',
     wikiUrl: 'https://en.wikipedia.org/wiki/Battle_of_Waterloo',
   },
@@ -43,7 +43,7 @@ const NODES: Record<string, Partial<NodeDoc>> = {
     name: 'Arthur Wellesley, 1st Duke of Wellington',
     dateStart: '1769-05-01',
     dateEnd: '1852-09-14',
-    tags: ['wars', 'politics'],
+    tags: ['Wars & Conflicts', 'Politics & Government'],
     summary: 'British Army officer and statesman who defeated Napoleon at Waterloo.',
     wikiUrl: 'https://en.wikipedia.org/wiki/Arthur_Wellesley,_1st_Duke_of_Wellington',
   },
@@ -51,7 +51,7 @@ const NODES: Record<string, Partial<NodeDoc>> = {
     name: 'Alexander the Great',
     dateStart: '-0356',
     dateEnd: '-0323',
-    tags: ['wars', 'exploration'],
+    tags: ['Wars & Conflicts', 'Exploration & Migration'],
     summary: 'King of Macedon whose campaigns built one of the largest empires of the ancient world.',
     wikiUrl: 'https://en.wikipedia.org/wiki/Alexander_the_Great',
   },
@@ -82,7 +82,7 @@ async function main() {
     for (const [qid, node] of Object.entries(NODES)) {
       await setDoc(doc(db, COL.nodes, qid), {
         dateStart: null, dateEnd: null, tags: [], summary: '', wikiUrl: '', externalLinks: [],
-        postCount: 0, starCount: 0, lastActivityAt: null,
+        starCount: 0, lastActivityAt: null,
         ...node,
       })
     }
@@ -105,8 +105,8 @@ async function main() {
   await ensureUser(alice, 'alice')
   await ensureUser(bob, 'bob')
   await ensureUser(carol, 'carol')
-  await setInterests(alice, 'alice', ['wars', 'politics'])
-  await setInterests(bob, 'bob', ['science', 'exploration'])
+  await setInterests(alice, 'alice', ['Wars & Conflicts', 'Politics & Government'])
+  await setInterests(bob, 'bob', ['Science & Technology', 'Exploration & Migration'])
 
   // posts on nodes and on a sourced edge
   const p1 = await createPost(alice, 'alice', {
