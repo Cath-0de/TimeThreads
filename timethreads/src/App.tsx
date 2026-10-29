@@ -9,9 +9,13 @@ import {
   type User,
 } from 'firebase/auth'
 import { useEffect, useState, type FormEvent } from 'react'
-// @ts-expect-error CSS is loaded as a side effect by the bundler.
 import './App.css'
 import { auth } from './firebase'
+import HomePage from './HomePage'
+import ProfilePage from './ProfilePage'
+import SignInPage from './SignInPage'
+
+type Page = 'home' | 'profile'
 
 function App() {
   const [user, setUser] = useState<User | null>(null)
@@ -19,6 +23,7 @@ function App() {
   const [isCreatingAccount, setIsCreatingAccount] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+  const [currentPage, setCurrentPage] = useState<Page>('home')
 
   useEffect(() => {
     return onAuthStateChanged(
@@ -86,77 +91,62 @@ function App() {
   }
 
   return (
-    <main id="home">
-      <h1>TimeThreads</h1>
+    <>
       {!authReady ? (
-        <p role="status">Checking sign-in status…</p>
+        <main id="home">
+          <h1>TimeThreads</h1>
+          <p role="status">Checking sign-in status…</p>
+        </main>
       ) : user ? (
-        <section className="auth-panel" aria-label="Account">
-          <p className="account-status">
-            Signed in as <strong>{user.email ?? 'your account'}</strong>
-          </p>
-          {errorMessage && <p className="auth-error" role="alert">{errorMessage}</p>}
-          <button
-            type="button"
-            className="sign-in"
-            onClick={handleSignOut}
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? 'Signing out…' : 'Sign out'}
-          </button>
-        </section>
+        <div className="app-shell">
+          <header className="app-header">
+            <button type="button" className="brand" onClick={() => setCurrentPage('home')}>
+              TimeThreads
+            </button>
+            <nav className="top-nav" aria-label="Main navigation">
+              <button
+                type="button"
+                aria-current={currentPage === 'home' ? 'page' : undefined}
+                className={currentPage === 'home' ? 'nav-link active' : 'nav-link'}
+                onClick={() => setCurrentPage('home')}
+              >
+                Home
+              </button>
+              <button
+                type="button"
+                aria-current={currentPage === 'profile' ? 'page' : undefined}
+                className={currentPage === 'profile' ? 'nav-link active' : 'nav-link'}
+                onClick={() => setCurrentPage('profile')}
+              >
+                Profile
+              </button>
+            </nav>
+          </header>
+
+          <main className="page-content">
+            {currentPage === 'home' ? (
+              <HomePage />
+            ) : (
+              <ProfilePage
+                user={user}
+                errorMessage={errorMessage}
+                isSubmitting={isSubmitting}
+                onSignOut={handleSignOut}
+              />
+            )}
+          </main>
+        </div>
       ) : (
-        <section className="auth-panel" aria-label="Sign in">
-          <h2>{isCreatingAccount ? 'Create your account' : 'Sign in'}</h2>
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autoComplete="email"
-              required
-              disabled={isSubmitting}
-            />
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              autoComplete={isCreatingAccount ? 'new-password' : 'current-password'}
-              minLength={6}
-              required
-              disabled={isSubmitting}
-            />
-            {errorMessage && <p className="auth-error" role="alert">{errorMessage}</p>}
-            <button type="submit" className="sign-in" disabled={isSubmitting}>
-              {isSubmitting
-                ? 'Please wait…'
-                : isCreatingAccount
-                  ? 'Create account'
-                  : 'Sign in'}
-            </button>
-          </form>
-          <div className="auth-divider" aria-hidden="true">
-            <span>or</span>
-          </div>
-          <button
-            type="button"
-            className="google-sign-in"
-            onClick={handleGoogleSignIn}
-            disabled={isSubmitting}
-          >
-            Continue with Google
-          </button>
-          <p className="auth-switch">
-            {isCreatingAccount ? 'Already have an account?' : 'New to TimeThreads?'}{' '}
-            <button type="button" onClick={toggleAccountMode} disabled={isSubmitting}>
-              {isCreatingAccount ? 'Sign in' : 'Create an account'}
-            </button>
-          </p>
-        </section>
+        <SignInPage
+          isCreatingAccount={isCreatingAccount}
+          isSubmitting={isSubmitting}
+          errorMessage={errorMessage}
+          onSubmit={handleSubmit}
+          onGoogleSignIn={handleGoogleSignIn}
+          onToggleAccountMode={toggleAccountMode}
+        />
       )}
-    </main>
+    </>
   )
 }
 
