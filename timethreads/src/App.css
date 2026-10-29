@@ -149,3 +149,138 @@
   overflow-wrap: anywhere;
   text-align: center;
 }
+
+.app-shell {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px max(24px, calc((100% - 1080px) / 2));
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  padding: 0;
+  border: 0;
+  color: var(--text-h);
+  background: transparent;
+  font-size: 22px;
+  font-weight: 600;
+  font: inherit;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.top-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-link {
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--text);
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border-color: var(--border);
+  color: var(--text-h);
+  background: #1b1b1b;
+}
+
+.nav-link:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid var(--text-h);
+  outline-offset: 3px;
+}
+
+.page-content {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 64px 24px;
+}
+
+.page-card {
+  box-sizing: border-box;
+  width: min(100%, 760px);
+  min-height: 240px;
+  padding: 36px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #0c0c0c;
+  text-align: left;
+}
+
+.page-card h1 {
+  font-size: 36px;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--text);
+  font-size: 13px;
+  letter-spacing: 1.2px;
+}
+
+.page-description {
+  margin-top: 16px;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(100%, 520px);
+}
+
+.profile-details {
+  margin: 0;
+}
+
+.profile-details dt {
+  margin-bottom: 4px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.profile-details dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--text-h);
+}
+
+@media (max-width: 520px) {
+  .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  .page-content {
+    padding: 32px 16px;
+  }
+
+  .page-card {
+    padding: 24px;
+  }
+
+  .page-card h1 {
+    font-size: 30px;
+  }
+}
