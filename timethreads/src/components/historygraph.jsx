@@ -1,13 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import cytoscape from "cytoscape";
-import senatorData from "../data/senators.json";
-
+import historyData from "../data/historicalsenators300.json";
+ 
+/*
 const partyColors = {
   "Democratic Party": "#2563eb",
   "Republican Party": "#dc2626",
   "independent politician": "#9333ea",
   "Green Party of the United States": "#16a34a",
 };
+*/
+
 
 export default function HistoryGraph() {
   const containerRef = useRef(null);
@@ -15,42 +18,46 @@ export default function HistoryGraph() {
   const [selected, setSelected] = useState(null);
   const [hoveredEdge, setHoveredEdge] = useState(null);
 
-  // Deduplicate senators by their Wikidata entity URL.
-  const senators = useMemo(() => {
-    const unique = new Map();
+  // Deduplicate historyitems by their Wikidata entity URL.
+  const historyitems = useMemo(() => {
+  const unique = new Map();
 
-    for (const senator of senatorData.nodes) {
-      if (!unique.has(senator.senator)) {
-        unique.set(senator.senator, senator);
-      }
+  for (const historyitem of historyData) {
+    if (!unique.has(historyitem.id)) {
+      unique.set(historyitem.id, historyitem);
     }
+  }
 
-    return [...unique.values()];
-  }, []);
+  return [...unique.values()];
+}, []);
 
  
   useEffect(() => {
-    const nodes = senators.map((senator) => ({
+    const nodes = historyitems.map((historyitem) => ({
       data: {
-        id: senator.senator,
-        label: senator.senatorLabel,
-        party: senator.partyLabel,
-        seat: senator.districtLabel,
-        state: senator.districtLabel?.replace(/\s+class\s+\d+$/i, ""),
-        assumedOffice: senator.assumedOffice,
-        image: senator.image,
-        partyColor: partyColors[senator.partyLabel] || "#64748b",
+        id: historyitem.id,
+        label: historyitem.label,
+        start: historyitem.birthDate,
+        end: historyitem.deathDate,
+        party: historyitem.partyLabel,
+        image: historyitem.image,
       },
     }));
 
+
+//Redo edge schema- old example edge schema below
+
+/*
     const edges = [];
 
-for (let i = 0; i < senators.length; i++) {
-  for (let j = i + 1; j < senators.length; j++) {
-    const a = senators[i];
-    const b = senators[j];
+for (let i = 0; i < historyitems.length; i++) {
+  for (let j = i + 1; j < historyitems.length; j++) {
+    const a = historyitems[i];
+    const b = historyitems[j];
 
-    // Connect senators from the same party.
+
+    
+    // Connect historyitems from the same party.
     if (
       a.partyLabel &&
       b.partyLabel &&
@@ -59,8 +66,8 @@ for (let i = 0; i < senators.length; i++) {
       edges.push({
         data: {
           id: `party-${i}-${j}`,
-          source: a.senator,
-          target: b.senator,
+          source: a.historyitem,
+          target: b.historyitem,
           type: "shared-party",
           relationship: `Same party: ${a.partyLabel}`,
           color: "#6d94c9",
@@ -68,7 +75,7 @@ for (let i = 0; i < senators.length; i++) {
       });
     }
   
-    // Connect senators from the same state.
+    // Connect historyitems from the same state.
 const stateA = a.districtLabel
   ?.replace(/\s+class\s+\d+\s+senate seat$/i, "")
   .trim();
@@ -78,15 +85,15 @@ const stateB = b.districtLabel
   .trim();
 
 if (stateA && stateB && stateA === stateB) {
-  console.log("Same state:", a.senatorLabel, b.senatorLabel, stateA);
+  console.log("Same state:", a.historyitemLabel, b.historyitemLabel, stateA);
 }
 
 if (stateA === stateB) {
   edges.push({
     data: {
       id: `state-${i}-${j}`,
-      source: a.senator,
-      target: b.senator,
+      source: a.historyitem,
+      target: b.historyitem,
       type: "shared-state",
       relationship: `Same state: ${stateA}`,
       color: "#f59e0b",
@@ -95,15 +102,19 @@ if (stateA === stateB) {
 }
 }
 }
-    console.log("Senators:", senators.length);
+*/
+    console.log("historyitems:", historyitems.length);
     console.log("Nodes:", nodes.length);
-    console.log("Edges:", edges.length);
-    console.log("First node:", nodes[0]);
-    console.log("First edge:", edges[0]);
-    const elements = [...nodes, ...edges];
+   // console.log("Edges:", edges.length);
+   // console.log("First node:", nodes[0]);
+   // console.log("First edge:", edges[0]);
+   // const elements = [...nodes, ...edges];
+   const elements =nodes;
 
-    console.log("First senator image:", senators[0]?.image);
+    console.log("First historyitem image:", historyitems[0]?.image);
     console.log("First node data:", nodes[0]);
+
+    
     const cy = cytoscape({
       container: containerRef.current,
       elements,
@@ -129,8 +140,7 @@ if (stateA === stateB) {
 {
   selector: "node",
   style: {
-    "background-color": "data(partyColor)",
-    "background-image": "data(image)",
+    "background-color": "#64748b",
     "background-fit": "cover",
     "background-clip": "node",
     "background-opacity": 1,
@@ -146,7 +156,7 @@ if (stateA === stateB) {
     "text-halign": "center",
     "text-margin-y": 5,
     "border-width": 2,
-    "border-color": "data(partyColor)",
+    "border-color": "#000000", //old code: data(partyColor)
   },
 },
 
@@ -187,42 +197,18 @@ cy.on("tap", (event) => {
   }
 });
 
-cy.on("mouseover", "edge", (event) => {
-  const edge = event.target;
-  const position = event.renderedPosition;
 
-  setHoveredEdge({
-    text: edge.data("relationship"),
-    x: position.x,
-    y: position.y,
-  });
-});
-
-cy.on("mouseout", "edge", () => {
-  setHoveredEdge(null);
-});
 
 return () => {
   cy.destroy();
   cyRef.current = null;
 };
-}, [senators]);
+}, [historyitems]);
 
 
 
   return (
     <div className="history-graph">
-      <div className="graph-legend">
-        {Object.entries(partyColors).map(([party, color]) => (
-          <span key={party} className="legend-item">
-            <span
-              className="legend-dot"
-              style={{ backgroundColor: color }}
-            />
-            {party}
-          </span>
-        ))}
-      </div>
 
       
 <div
@@ -241,31 +227,14 @@ return () => {
     }}
   />
 
-  {hoveredEdge && (
-    <div
-      style={{
-        position: "absolute",
-        left: hoveredEdge.x + 12,
-        top: hoveredEdge.y + 12,
-        padding: "8px 12px",
-        background: "#1f2937",
-        color: "white",
-        borderRadius: "6px",
-        fontSize: "13px",
-        pointerEvents: "none",
-        zIndex: 10,
-      }}
-    >
-      {hoveredEdge.text}
-    </div>
-  )}
+  
 </div>
 
 
-      <p>{senators.length} unique senators</p>
+      <p>{historyitems.length} unique historyitems</p>
 
       {selected && (
-        <section className="senator-details">
+        <section className="historyitem-details">
           {selected.image && (
             <img
               src={selected.image}
