@@ -80,6 +80,29 @@ config anywhere else. Import what you need from it:
 "auth" is Firebase Authentication, "db" is Firestore. Adjust the
 relative path if your file is in a subfolder.
 
+The database layout (collections, fields, document IDs) is defined in
+timethreads/src/schema.ts. Always write to Firestore through the helpers
+in timethreads/src/actions.ts (createPost, castVote, proposeEdge,
+setStar, recordVisit...). The security rules only accept writes shaped
+the way those helpers make them, so a hand-written setDoc/updateDoc will
+usually fail with "Missing or insufficient permissions".
+
+    import { db } from './firebase'
+    import { castVote } from './actions'
+    await castVote(db, user.uid, 'edge', edgeId, 1)
+
+
+TESTING THE SECURITY RULES (backend)
+------------------------------------
+
+Needs Java 11+ and the Firebase CLI (see DEPLOYING below). From the
+timethreads folder:
+
+    npm run test:rules
+
+This runs tests/rules.test.ts against a local emulator, not the real
+database. Run it before every "firebase deploy --only firestore:rules".
+
 
 DEPLOYING (only if you change rules or publish the site)
 --------------------------------------------------------
@@ -97,6 +120,7 @@ Log in with the Google account that was added to the project.
 Then, from the repo root (not the timethreads folder):
 
     firebase deploy --only firestore:rules     security rules
+    firebase deploy --only firestore:indexes   query indexes
     firebase deploy --only hosting             the website
 
 The hosting deploy builds the app for you, using the values in your
