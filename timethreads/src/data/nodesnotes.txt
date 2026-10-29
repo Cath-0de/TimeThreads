@@ -1,0 +1,130 @@
+HERE IS THE FILE FOR ALL THINGS DISPLAYING NODES!!
+(feel free to add anything you think is relevant!)
+
+To run: npx vite (make sure you cd into timethreads first!)
+
+
+GENERAL NOTES/TASKS/THOUGHTS:
+-----------------------------------------------------------------------------------------------
+
+Used wikipedia python library for extracting wikipedia data (in wikipediatest.py)
+
+May not even need to store wikipedia summary data as we could pull that as we're displaying
+
+Wikidata entry is displayed beneath still, do we still need it/ does it need to be edited?
+
+
+
+NOTES ON GETTING DATA:
+-----------------------------------------------------------------------------------------------
+To format the json I used is https://json-indent.com/ 
+We should write a script that formats them all in one go, adds tags etc - may be a good idea to use firebase
+
+
+EXAMPLE SPARQL QUERIES:
+
+SELECT DISTINCT ?war ?warLabel ?startDate ?endDate
+WHERE
+{
+  ?war wdt:P31/wdt:P279* wd:Q350604
+  OPTIONAL{?war wdt:P580 ?startDate .}     # start date
+  OPTIONAL{?war wdt:P582 ?endDate . }    # end date
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en".
+  } 
+}
+LIMIT 150
+for politicians: 
+SELECT DISTINCT ?politician ?politicianLabel ?birthDate ?deathDate
+WHERE
+{
+  ?politician wdt:P106 wd:Q82955 .
+  OPTIONAL{?politician wdt:P569 ?birthDate .}     # start date
+  OPTIONAL{?politician wdt:P582 ?deathDate . }    # end date
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en".
+  } 
+}
+LIMIT 150
+
+SELECT DISTINCT ?artist ?artistLabel ?birthDate ?deathDate
+WHERE
+{
+  ?artist wdt:P106 wd:Q483501 .
+  OPTIONAL{?artist wdt:P569 ?birthDate .}     # start date
+  OPTIONAL{?artist wdt:P582 ?deathDate . }    # end date
+  
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "[AUTO_LANGUAGE],mul,en".
+  } 
+}
+LIMIT 150
+
+
+
+NODE SCHEMA REFERENCE:
+-----------------------------------------------------------------------------------------------
+{
+ "nodes" : [ '
+      {
+      "data" : {
+            "id":"Q65967183",
+            "label":"",
+            "start": "",
+            "end": "",
+            "tags": "",
+            "visits": ""
+            }
+        },
+        {
+        "data" : {
+ 
+            }
+        },
+    ],
+"edges": [
+
+  ]
+}
+
+OTHER STUFF:
+-----------------------------------------------------------------------------------------------
+
+Edge Style code I removed -> PUT BACK IN WHEN WE HAVE THE EDGES
+
+cy.on("mouseover", "edge", (event) => {
+  const edge = event.target;
+  const position = event.renderedPosition;
+
+  setHoveredEdge({
+    text: edge.data("relationship"),
+    x: position.x,
+    y: position.y,
+  });
+});
+
+cy.on("mouseout", "edge", () => {
+  setHoveredEdge(null);
+});
+
+{hoveredEdge && (
+    <div
+      style={{
+        position: "absolute",
+        left: hoveredEdge.x + 12,
+        top: hoveredEdge.y + 12,
+        padding: "8px 12px",
+        background: "#1f2937",
+        color: "white",
+        borderRadius: "6px",
+        fontSize: "13px",
+        pointerEvents: "none",
+        zIndex: 10,
+      }}
+    >
+      {hoveredEdge.text}
+    </div>
+  )}
+
