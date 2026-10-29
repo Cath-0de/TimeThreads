@@ -1,4 +1,27 @@
-Example Queries:
+HERE IS THE FILE FOR ALL THINGS DISPLAYING NODES!!
+(feel free to add anything you think is relevant!)
+
+To run: npx vite (make sure you cd into timethreads first!)
+
+
+GENERAL NOTES/TASKS/THOUGHTS:
+-----------------------------------------------------------------------------------------------
+
+Used wikipedia python library for extracting wikipedia data (in wikipediatest.py)
+
+May not even need to store wikipedia summary data as we could pull that as we're displaying
+
+Wikidata entry is displayed beneath still, do we still need it/ does it need to be edited?
+
+
+
+NOTES ON GETTING DATA:
+-----------------------------------------------------------------------------------------------
+To format the json I used is https://json-indent.com/ 
+We should write a script that formats them all in one go, adds tags etc - may be a good idea to use firebase
+
+
+EXAMPLE SPARQL QUERIES:
 
 SELECT DISTINCT ?war ?warLabel ?startDate ?endDate
 WHERE
@@ -39,9 +62,10 @@ WHERE
 }
 LIMIT 150
 
-To format the json I used is https://json-indent.com/ but there might be a better solution for larger data sets
 
-Node schema:
+
+NODE SCHEMA REFERENCE:
+-----------------------------------------------------------------------------------------------
 {
  "nodes" : [ '
       {
@@ -56,30 +80,20 @@ Node schema:
         },
         {
         "data" : {
-            "id":"Q65967183",
-            "label":"",
-            "start": "",
-            "end": "",
-            "tags": "",
-            "visits": ""
+ 
             }
         },
     ],
 "edges": [
-    {"data" : { 
-        "source": "Q115757163", 
-        "target": "Q677525" 
-        }
-        },
 
   ]
 }
 
-To run: npx vite (make sure you cd into timethreads first!)
+OTHER STUFF:
+-----------------------------------------------------------------------------------------------
 
+Edge Style code I removed -> PUT BACK IN WHEN WE HAVE THE EDGES
 
-
-Edge Style code I remved: 
 cy.on("mouseover", "edge", (event) => {
   const edge = event.target;
   const position = event.renderedPosition;
@@ -113,3 +127,4 @@ cy.on("mouseout", "edge", () => {
       {hoveredEdge.text}
     </div>
   )}
+
