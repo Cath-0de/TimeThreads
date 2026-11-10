@@ -80,6 +80,7 @@ export interface NodeDoc {
   summary: string // Wikipedia intro, 3-4 sentences
   wikiUrl: string
   externalLinks: string[]
+  image?: string | null // Wikimedia Commons URL, when the source data has one
   // Kept up to date by the app: starCount moves with each star/unstar,
   // lastActivityAt is set when someone posts in the node's thread.
   starCount: number
