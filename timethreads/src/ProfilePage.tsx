@@ -2,6 +2,8 @@ import type { User } from 'firebase/auth'
 
 type ProfilePageProps = {
   user: User
+  pseudonym: string | null
+  profileError: string
   errorMessage: string
   isSubmitting: boolean
   onSignOut: () => void
@@ -9,6 +11,8 @@ type ProfilePageProps = {
 
 export default function ProfilePage({
   user,
+  pseudonym,
+  profileError,
   errorMessage,
   isSubmitting,
   onSignOut,
@@ -22,7 +26,12 @@ export default function ProfilePage({
           <dt>Email</dt>
           <dd>{user.email ?? 'No email available'}</dd>
         </div>
+        <div>
+          <dt>Pseudonym (shown on your posts)</dt>
+          <dd>{pseudonym ?? (profileError ? 'Not set up' : 'Setting up…')}</dd>
+        </div>
       </dl>
+      {profileError && <p className="auth-error" role="alert">{profileError}</p>}
       {errorMessage && <p className="auth-error" role="alert">{errorMessage}</p>}
       <button
         type="button"

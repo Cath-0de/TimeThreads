@@ -10,7 +10,8 @@ import {
 } from 'firebase/auth'
 import { useEffect, useState, type FormEvent } from 'react'
 import './App.css'
-import { auth } from './firebase'
+import { ensureUser } from './actions'
+import { auth, db } from './firebase'
 import HomePage from './HomePage'
 import ProfilePage from './ProfilePage'
 import SignInPage from './SignInPage'
@@ -24,6 +25,8 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
   const [currentPage, setCurrentPage] = useState<Page>('home')
+  const [pseudonym, setPseudonym] = useState<string | null>(null)
+  const [profileError, setProfileError] = useState('')
 
   useEffect(() => {
     return onAuthStateChanged(
@@ -31,6 +34,14 @@ function App() {
       (currentUser) => {
         setUser(currentUser)
         setAuthReady(true)
+        setPseudonym(null)
+        setProfileError('')
+        if (currentUser) {
+          // Creates the user doc and pseudonym on first sign-in; posts need it.
+          ensureUser(db, currentUser.uid)
+            .then((profile) => setPseudonym(profile.pseudonym))
+            .catch((error) => setProfileError(`Could not set up your pseudonym: ${error.message}`))
+        }
       },
       () => {
         setErrorMessage('Could not check your sign-in status. Please refresh and try again.')
@@ -125,10 +136,12 @@ function App() {
 
           <main className="page-content">
             {currentPage === 'home' ? (
-              <HomePage />
+              <HomePage uid={user.uid} profileReady={pseudonym !== null} />
             ) : (
               <ProfilePage
                 user={user}
+                pseudonym={pseudonym}
+                profileError={profileError}
                 errorMessage={errorMessage}
                 isSubmitting={isSubmitting}
                 onSignOut={handleSignOut}
