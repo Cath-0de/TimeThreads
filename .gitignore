@@ -9,3 +9,6 @@ serviceAccount*.json
 
 .env.local
 
+
+# Dependencies
+node_modules/
