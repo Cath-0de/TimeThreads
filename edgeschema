@@ -1,0 +1,11 @@
+{
+    "edge": [{
+        "id": "e_001", 
+        "source": "n_001",
+        "target": "n_002",
+        "relationship": "connected_to",
+        "type": "conflict",
+        "status": "pending",
+        "votes": []
+    }]
+}
