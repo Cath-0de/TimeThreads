@@ -64,7 +64,10 @@ service cloud.firestore {
         && incoming().pseudonym is string
         && incoming().pseudonym.size() > 0 && incoming().pseudonym.size() <= 40
         && incoming().interests is list
-        && incoming().createdAt == request.time;
+        && incoming().createdAt == request.time
+        // The name must be claimed in this same write (see /pseudonyms below).
+        && !exists(docPath('pseudonyms', incoming().pseudonym))
+        && existsAfter(docPath('pseudonyms', incoming().pseudonym));
       allow update: if signedIn() && uid() == userId
         && changed().hasOnly(['interests'])
         && incoming().interests is list && incoming().interests.size() <= 10;
@@ -95,6 +98,21 @@ service cloud.firestore {
           && incoming().lastViewedAt == request.time;
         allow delete: if signedIn() && uid() == userId;
       }
+    }
+
+    // ------------------------------------------------------------- pseudonyms
+    // pseudonyms/{name}: one doc per taken name, holding no user ID. A name is
+    // claimed only together with the caller's new user doc that uses it, and
+    // is never released. "create" fails on an existing doc, so names are unique.
+
+    match /pseudonyms/{name} {
+      allow get: if signedIn();
+      allow create: if signedIn()
+        && incoming().keys().hasOnly(['claimedAt'])
+        && incoming().claimedAt == request.time
+        && !exists(docPath('users', uid()))
+        && getAfter(docPath('users', uid())).data.pseudonym == name;
+      allow list, update, delete: if false;
     }
 
     // ------------------------------------------------------------------ nodes
