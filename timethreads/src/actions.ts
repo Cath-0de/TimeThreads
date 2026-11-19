@@ -216,7 +216,7 @@ export async function castVote(
   uid: string,
   targetType: VoteTargetType,
   targetId: string,
-  value: 1 | -1 | 0,
+  value: 1 | 0,
 ) {
   const voteRef = doc(db, COL.votes, voteId(uid, targetId))
   const targetRef = doc(db, targetType === 'post' ? COL.posts : COL.edges, targetId)
@@ -235,13 +235,12 @@ export async function castVote(
 
     const t = targetSnap.data()
     const upvotes = t.upvotes + (value === 1 ? 1 : 0) - (before === 1 ? 1 : 0)
-    const downvotes = t.downvotes + (value === -1 ? 1 : 0) - (before === -1 ? 1 : 0)
     const score = t.score + value - before
 
     if (value === 0) tx.delete(voteRef)
     else tx.set(voteRef, { uid, targetType, targetId, value })
 
-    const counters: Record<string, unknown> = { upvotes, downvotes, score }
+    const counters: Record<string, unknown> = { upvotes, score }
     if (targetType === 'edge' && t.kind === 'community') counters.promoted = score >= PROMOTE_AT
     tx.update(targetRef, counters)
   })
@@ -255,9 +254,12 @@ export async function setStar(db: Firestore, uid: string, targetType: TargetType
   const starRef = doc(db, COL.users, uid, COL.stars, targetId)
   await runTransaction(db, async (tx) => {
     const existing = await tx.get(starRef)
-    if (existing.exists() === starred) return
-    if (starred) tx.set(starRef, { targetType, targetId, createdAt: serverTimestamp() })
-    else tx.delete(starRef)
+    if (existing.exists() === starred) 
+      return
+    if (starred) 
+      tx.set(starRef, { targetType, targetId, createdAt: serverTimestamp() })
+    else 
+      tx.delete(starRef)
     if (targetType === 'node') {
       tx.update(doc(db, COL.nodes, targetId), { starCount: increment(starred ? 1 : -1) })
     }
