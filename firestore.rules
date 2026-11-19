@@ -265,7 +265,7 @@ service cloud.firestore {
         return incoming().keys().hasOnly(['uid', 'targetType', 'targetId', 'value'])
           && incoming().uid == uid()
           && voteId == uid() + '_' + incoming().targetId
-          && incoming().value in [1, -1]
+          && (incoming().value == 1 || incoming().value == -1)
           && (incoming().targetType == 'post'
               || (incoming().targetType == 'edge'
                   && get(docPath('edges', incoming().targetId)).data.kind == 'community'));
